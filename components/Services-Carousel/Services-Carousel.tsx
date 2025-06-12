@@ -12,7 +12,7 @@ const slides = [
     title: "Revolutionize Your E-Commerce Empire with Top-Notch Automation Services That Deliver Results",
     content: [
       "Welcome to Amz Vistas – where we don't just manage e-commerce assets; we elevate them to unprecedented heights! Imagine a team of over 500 seasoned experts, all geared up to supercharge your online marketplace. We're not just service providers; we're your partners in profit, with a track record spanning more than ten years in product development and e-commerce marketplace operations. We are among the best e-commerce automation companies.",
-      "Our journey has been nothing short of remarkable. Our team has achieved a whopping $300 million in revenue through countless challenges – and we're just getting started! What sets us apart is our rock-solid business model that consistently spells success. We're not here to make promises; we're here to deliver, and we're so confident in our abilities that we offer you something extraordinary – a contractual guarantee of a return on investment (ROI) throughout our partnership.",
+      "Our journey has been nothing short of remarkable. Our team has achieved a whopping $300 million in revenue through countless challenges – and we're just getting started! What sets us apart is our rock-solid business model that consistently spells success. We're not here to make promises; we're here to deliver",
     ],
   },
   {

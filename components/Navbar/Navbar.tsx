@@ -6,44 +6,21 @@ import { Menu, ChevronDown, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50 py-2">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center">
-              {/* AMZ VISTAS Logo - Exact replica */}
-              <div className="relative w-12 h-10 mr-3">
-                {/* 3D Box Container */}
-                <div className="relative w-full h-full">
-                  {/* Back face */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-500 rounded-sm transform translate-x-1 translate-y-1"></div>
-                  {/* Front face */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-300 to-orange-400 rounded-sm border border-orange-500"></div>
-                  {/* Top face */}
-                  <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-t-sm transform -skew-x-12 origin-top-left"></div>
-                  {/* Right face */}
-                  <div className="absolute top-0 right-0 w-2 h-full bg-gradient-to-b from-orange-500 to-orange-600 rounded-r-sm transform skew-y-12 origin-top-right"></div>
+             
 
-                  {/* AMZ VISTAS text inside box */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-white text-xs font-bold transform -rotate-12 leading-none">
-                      <div className="text-center">
-                        <div className="text-[8px] leading-none">AMZ</div>
-                        <div className="text-[6px] leading-none">VISTAS</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <span className="text-xl font-bold text-gray-900 tracking-tight">
-                AMZ VISTAS<sup className="text-xs font-normal">®</sup>
-              </span>
+             <Image  src={'/images/Logo/Black_Logo.png'} alt={'logo'} width={100} height={100} />
             </Link>
           </div>
 

@@ -17,7 +17,7 @@ const stepsWithRealImages: Step[] = [
     title: "Easy & Smooth Onboarding",
     description:
       "You don't require any prior knowledge of seller platforms, company development, LLCs, or paperwork. Together, our staff will guide you through each step of our simplified onboarding procedure.",
-    imageSrc: "/images/step-01.png",
+    imageSrc: "/images/Our_Process/Step1.png",
     imageAlt: "Person climbing steps with pink circular background",
   },
   {
@@ -25,7 +25,7 @@ const stepsWithRealImages: Step[] = [
     title: "We Successfully Build Your Store",
     description:
       "You'll have your own e-commerce business on the world's greatest platform and be ready to sell within two weeks. We collaborate with many of the brands you know and love. As soon as you make your first sale, your assets will begin to increase.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "/images/Our_Process/Step2.png",
     imageAlt: "People working in warehouse with boxes and pendant lights",
   },
   {
@@ -33,7 +33,7 @@ const stepsWithRealImages: Step[] = [
     title: "We Boost Your Store's and Sales Performance",
     description:
       "We grow your shop and launch our strong sourcing and fulfillment methods, including wholesale FBA, private label, and FBM. Manage your sales and earnings in real-time with the Amazon Seller app, and get money straight from Amazon every two weeks.",
-    imageSrc: "/placeholder.svg?height=300&width=400",
+    imageSrc: "/images/Our_Process/Step4.jpg",
     imageAlt: "Sales growth chart with money bag and magnifying glass",
   },
 ]

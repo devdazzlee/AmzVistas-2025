@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react"
+import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 
 export default function Footer() {
@@ -9,14 +10,7 @@ export default function Footer() {
           {/* Company Info Section */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-lg flex items-center justify-center">
-                <div className="w-8 h-6 bg-orange-600 rounded-sm transform rotate-12"></div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">
-                  AMZ VISTAS<sup className="text-sm">®</sup>
-                </h3>
-              </div>
+             <Image  src={'/images/Logo/Logo.png'} alt={'logo'} width={150} height={150} />
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -24,14 +18,11 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/amzvistas" className="text-gray-300 hover:text-white transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/amzvistas.official/" className="text-gray-300 hover:text-white transition-colors">
                 <Instagram className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Linkedin className="w-6 h-6" />
               </a>
             </div>
           </div>

@@ -8,7 +8,7 @@ export default function Home() {
       title="About"
       highlightText="AMZ VISTAS"
       subtitle="Your trusted partner in e-commerce automation"
-      backgroundImage="/placeholder.svg?height=400&width=1200"
+      backgroundImage="/images/Contact/Contact_Banner.jpg"
     />
    <ContactSection />
    </>

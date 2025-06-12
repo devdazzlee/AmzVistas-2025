@@ -13,14 +13,14 @@ const page = () => {
       title="Our"
       highlightText="Process"
       subtitle="Your trusted partner in e-commerce automation"
-      backgroundImage="/placeholder.svg?height=400&width=1200"
+      backgroundImage="/images/Our_Process/Our_Process_Banner.jpg"
     />
     <ProcessSection
       title="Our"
       highlightText="Amz Vistas"
       secondaryText="Process"
       description="With the help of our tested infrastructure, smooth-running onboarding process, and the 10+ years of expertise in Amazon and Walmart that we dedicate to every client, we want to make your Amz Vistas e-commerce business the most flexible and long-lasting asset in your portfolio"
-      imageSrc="/placeholder.svg?height=300&width=400"
+      imageSrc="/images/Our_Process/Process_Sec.jpg"
       imageAlt="Step-by-step process blocks"
     >
       <div className="flex flex-col sm:flex-row gap-4">

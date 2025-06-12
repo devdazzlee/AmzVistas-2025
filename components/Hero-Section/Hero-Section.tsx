@@ -1,17 +1,22 @@
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function HeroSection() {
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-red-400"
-        // style={{
-        //   backgroundImage: "url('/warehouse-background.png')",
-        // }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 object-cover w-full h-full"
+      >
+        <source src="/Videos/Banner_Video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay to darken video for better contrast */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
 
       {/* Content Container */}
       <div className="relative z-10 h-full flex items-center">
@@ -105,5 +110,5 @@ export default function HeroSection() {
         </div>
       </div>
     </div>
-  )
+  );
 }
