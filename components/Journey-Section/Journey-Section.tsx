@@ -132,16 +132,15 @@ export default function JourneySection() {
         delay: 1.5 + i * 0.2,
       },
     }),
-    floating: (i: number) => ({
+    floating: {
       y: [0, -8, 0],
-      rotate: [0, i % 2 === 0 ? 5 : -5, 0],
       transition: {
-        duration: 4 + i,
-        repeat: Number.POSITIVE_INFINITY,
-        repeatType: "reverse",
+        duration: 4,
+        repeat: Infinity,
+        repeatType: "mirror" as const,
         ease: "easeInOut",
       },
-    }),
+    },
   }
 
   const listItemVariants = {
@@ -181,7 +180,7 @@ export default function JourneySection() {
   return (
     <section
       ref={sectionRef}
-      className="py-32 px-4 bg-white overflow-hidden relative"
+      className="px-4 bg-white overflow-hidden relative"
       style={{
         perspective: "1000px",
       }}
