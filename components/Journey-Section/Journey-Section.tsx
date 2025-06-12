@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useRef, useState, useEffect } from "react"
@@ -134,13 +133,14 @@ export default function JourneySection() {
     }),
     floating: {
       y: [0, -8, 0],
+      rotate: [0, 5, 0],
       transition: {
         duration: 4,
         repeat: Infinity,
-        repeatType: "mirror" as const,
+        repeatType: "reverse" as const,
         ease: "easeInOut",
       },
-    },
+    }
   }
 
   const listItemVariants = {
@@ -180,7 +180,7 @@ export default function JourneySection() {
   return (
     <section
       ref={sectionRef}
-      className="px-4 bg-white overflow-hidden relative"
+      className="py-6 px-4 bg-white overflow-hidden relative"
       style={{
         perspective: "1000px",
       }}
@@ -321,38 +321,50 @@ export default function JourneySection() {
               <Award className="w-6 h-6" />
             </motion.span>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Revolutionize Your E-Commerce Journey</h1>
-            <motion.div
+            {/* <motion.div
               className="h-1 w-40 md:w-80 bg-gradient-to-r from-blue-400 to-orange-400 mx-auto rounded-full"
               initial={{ width: 0, opacity: 0 }}
               animate={isInView ? { width: "60%", opacity: 1 } : { width: 0, opacity: 0 }}
               transition={{ delay: 1.2, duration: 1.5, ease: "easeOut" }}
-            />
+            /> */}
           </motion.div>
         </motion.div>
 
-        {/* Subheading with animation */}
-        <motion.h2
-          className="text-center text-2xl md:text-3xl font-semibold text-gray-700 mb-24"
+        {/* Subheading with animation - FIXED UNDERLINE ISSUE */}
+        <motion.div
+          className="text-center my-16"
           variants={subHeadingVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          Timelines and Predictable Growth Of Your{" "}
-          <motion.span
-            className="text-orange-500 relative inline-block font-bold"
-            whileHover={{ scale: 1.05, color: "#f97316" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            E-Commerce
-          </motion.span>{" "}
-          <motion.span
-            className="text-teal-600 relative inline-block font-bold"
-            whileHover={{ scale: 1.05, color: "#0d9488" }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-          >
-            Assets
-          </motion.span>
-        </motion.h2>
+          <div className="relative inline-block">
+            <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 pb-2">
+              Timelines and Predictable Growth Of Your{" "}
+              <motion.span
+                className="text-orange-500 font-bold"
+                whileHover={{ scale: 1.05, color: "#f97316" }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                E-Commerce
+              </motion.span>{" "}
+              <motion.span
+                className="text-teal-600 font-bold"
+                whileHover={{ scale: 1.05, color: "#0d9488" }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                Assets
+              </motion.span>
+            </h2>
+            {/* Fixed underline that stays in position */}
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-teal-500 to-blue-500 rounded-full"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={isInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
+              transition={{ delay: 1.4, duration: 1, ease: "easeOut" }}
+              style={{ transformOrigin: "left" }}
+            />
+          </div>
+        </motion.div>
 
         {/* Two column cards with animation */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
