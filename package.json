@@ -47,7 +47,7 @@
     "next": "15.3.3",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
-    "react-day-picker": "^8.10.1",
+    "react-day-picker": "^9.6.7",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.57.0",
     "react-resizable-panels": "^3.0.2",
@@ -68,5 +68,13 @@
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "react-day-picker": {
+      "peerDependencies": {
+        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+        "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+      }
+    }
   }
 }
