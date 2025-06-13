@@ -151,7 +151,7 @@ export default function LogisticsTourSection({
             <motion.div className="relative" variants={mapVariants}>
               <div className="relative">
                 <Image
-                  src="/world-map-logistics.png"
+                  src="/images/Home/Banner4.png"
                   alt="World Map showing AMZ Vistas logistics locations"
                   width={600}
                   height={400}

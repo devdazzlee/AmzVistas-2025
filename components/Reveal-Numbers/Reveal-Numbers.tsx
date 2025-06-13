@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 
 interface RevealNumbersSectionProps {
   title?: string
@@ -110,65 +111,13 @@ export default function RevealNumbersSection({
               }}
             >
               {/* Warehouse Illustration */}
-              <div className="bg-gradient-to-b from-blue-200 to-blue-100 rounded-2xl p-8 shadow-lg">
-                <div className="relative">
-                  {/* Sky background */}
-                  <div className="h-32 bg-gradient-to-b from-blue-300 to-blue-200 rounded-t-xl mb-4 relative overflow-hidden">
-                    {/* Clouds */}
-                    <motion.div
-                      className="absolute top-2 left-4 w-8 h-4 bg-white rounded-full opacity-80"
-                      animate={{ x: [0, 10, 0] }}
-                      transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    />
-                    <motion.div
-                      className="absolute top-4 right-8 w-6 h-3 bg-white rounded-full opacity-70"
-                      animate={{ x: [0, -8, 0] }}
-                      transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                    />
-                  </div>
-
-                  {/* Warehouse Building */}
-                  <div className="relative">
-                    {/* Main building */}
-                    <div className="bg-gray-100 h-24 rounded-lg relative overflow-hidden">
-                      {/* Warehouse label */}
-                      <div className="absolute top-2 left-1/2 transform -translate-x-1/2 bg-orange-400 text-white px-4 py-1 rounded text-sm font-bold">
-                        WAREHOUSE
-                      </div>
-
-                      {/* Loading docks */}
-                      <div className="absolute bottom-0 left-4 w-8 h-12 bg-blue-600 rounded-t"></div>
-                      <div className="absolute bottom-0 left-16 w-8 h-12 bg-blue-600 rounded-t"></div>
-                      <div className="absolute bottom-0 left-28 w-8 h-12 bg-blue-600 rounded-t"></div>
-                    </div>
-
-                    {/* Ground */}
-                    <div className="h-8 bg-green-400 rounded-b-xl relative">
-                      {/* Boxes */}
-                      <motion.div
-                        className="absolute bottom-2 left-8 w-4 h-4 bg-orange-400 rounded"
-                        animate={{ y: [0, -2, 0] }}
-                        transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                      />
-                      <motion.div
-                        className="absolute bottom-2 left-16 w-4 h-4 bg-yellow-400 rounded"
-                        animate={{ y: [0, -1, 0] }}
-                        transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                      />
-
-                      {/* Forklift */}
-                      <motion.div
-                        className="absolute bottom-2 right-8 w-6 h-4 bg-yellow-500 rounded"
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-                      >
-                        <div className="w-2 h-2 bg-black rounded-full absolute bottom-0 left-1"></div>
-                        <div className="w-2 h-2 bg-black rounded-full absolute bottom-0 right-1"></div>
-                      </motion.div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             <Image  
+             src={'/images/Home/Banner2.jpg'}  
+             alt="World Map showing AMZ Vistas logistics locations"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                  priority / >
             </motion.div>
           </motion.div>
 

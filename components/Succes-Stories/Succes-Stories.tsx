@@ -178,7 +178,7 @@ export default function SuccessStoriesSection({
                 className="relative"
               >
                 <Image
-                  src="/amz-vistas-infographic.png"
+                  src="/images/Home/Banner3.png"
                   alt="AMZ Vistas Business Process Infographic"
                   width={500}
                   height={400}

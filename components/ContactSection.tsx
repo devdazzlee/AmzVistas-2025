@@ -11,6 +11,7 @@ import { useState } from "react"
 
 export default function ContactSection() {
   const [focusedField, setFocusedField] = useState<string | null>(null)
+  console.log("🚀 ~ ContactSection ~ focusedField:", focusedField)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const containerVariants = {
@@ -163,7 +164,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Transform your business with our expert solutions. Let's create something extraordinary together.
+            {`Transform your business with our expert solutions. Let's create something extraordinary together.`}
           </motion.p>
         </motion.div>
 
@@ -206,7 +207,7 @@ export default function ContactSection() {
                       >
                         FREE CONSULTATION
                       </motion.span>{" "}
-                      and let's discuss your vision.
+                      {`and let's discuss your vision.`}
                     </p>
                   </div>
 
@@ -322,7 +323,7 @@ export default function ContactSection() {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  {["Name", "Phone"].map((placeholder, index) => (
+                  {["Name", "Phone"].map((placeholder) => (
                     <motion.div key={placeholder} whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
                       <Input
                         type={placeholder === "Phone" ? "tel" : "text"}
@@ -339,10 +340,9 @@ export default function ContactSection() {
                   <motion.div
                     key={placeholder}
                     whileFocus={{ scale: 1.02 }}
-                    transition={{ duration: 0.2 }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1, whileFocus: { duration: 0.2 } }}
                     viewport={{ once: true }}
                   >
                     <Input
@@ -357,10 +357,12 @@ export default function ContactSection() {
 
                 <motion.div
                   whileFocus={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
+                  transition={{
+                    whileFocus: { duration: 0.2 },
+                    default: { duration: 0.6, delay: 0.3 }
+                  }}
                   viewport={{ once: true }}
                 >
                   <Textarea

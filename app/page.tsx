@@ -24,13 +24,12 @@ export default function Home() {
    <HeroSection/>
    <CarouselSection/>
    <JourneySection/>
-   <ExcellenceSection/>
     <ProcessSection
       title="Discover the Gateway to Your E-commerce Success! Turn your dreams of a thriving e-commerce business into reality with Amz Vistas."
       highlightText=""
       secondaryText=""
       description="We are a dynamic powerhouse, seamlessly blending logistics, wholesale distribution, and e-commerce seller management under one robust roof. With our headquarters in Los Angeles and strategically positioned warehouses and prep centers in Texas, Florida, New York, and Michigan, we are poised to support your e-commerce endeavors efficiently."
-      imageSrc="/placeholder.svg?height=300&width=400"
+      imageSrc="/images/Home/HomeBanner.png"
       imageAlt="Step-by-step process blocks"
     >
       <div className="flex flex-col sm:flex-row gap-4">
@@ -40,19 +39,13 @@ export default function Home() {
         </Button>
       </div>
     </ProcessSection>
+   <ExcellenceSection/>
+   
     <FeaturesSection/>
   <StatsSection/>
     <LeadershipSection/>
     <RevealNumbersSection/>
-  <SuccessStoriesSection
-        rating="4.8+"
-        timeframe="5+"
-        title="Transform Your Business Today!"
-        description="Join thousands of successful entrepreneurs who have revolutionized their Amazon business with our proven strategies. Our data-driven approach and innovative solutions have consistently delivered exceptional results, creating a partnership where your success is our success."
-        buttonText="Get Started Now"
-        onButtonClick={() => console.log("Custom button clicked")}
-        showInfographic={true}
-      />
+  <SuccessStoriesSection/>
         <LogisticsTourSection
         title="Discover our Global Network with exclusive access to our Worldwide facilities."
         highlightedWords={["Global Network", "Worldwide"]}
