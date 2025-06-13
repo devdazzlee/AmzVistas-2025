@@ -1,7 +1,7 @@
 "use client"
 
 import type { ReactNode } from "react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 interface BannerProps {
   title?: string
@@ -29,7 +29,7 @@ export default function Banner({
         staggerChildren: 0.2,
       },
     },
-  }
+  } 
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -41,7 +41,8 @@ export default function Banner({
         ease: "easeOut",
       },
     },
-  }
+  } satisfies Variants;
+
 
   const backgroundVariants = {
     hidden: { scale: 1.1, opacity: 0 },
@@ -53,7 +54,7 @@ export default function Banner({
         ease: "easeOut",
       },
     },
-  }
+  } satisfies Variants;
 
   const highlightVariants = {
     hidden: { opacity: 0, scale: 0.8 },
@@ -66,7 +67,7 @@ export default function Banner({
         ease: "easeOut",
       },
     },
-  }
+  } satisfies Variants;
 
   return (
     <section className={`relative h-[60vh] flex items-center justify-center overflow-hidden ${className}`}>
