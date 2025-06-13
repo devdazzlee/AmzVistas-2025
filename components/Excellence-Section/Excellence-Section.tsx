@@ -293,12 +293,14 @@ export default function ExcellenceSection() {
               >
                 dedicated Amazon experts
               </motion.span>{" "}
+              {`
               ready to catapult your business to unprecedented heights. Automation is not just a service; it's a journey
               to unparalleled success.
+              `}
             </motion.p>
           </div>
 
-          {/* Call to action button */}
+        
           <motion.div
             className="mt-12 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -328,4 +330,3 @@ export default function ExcellenceSection() {
     </section>
   )
 }
-git
