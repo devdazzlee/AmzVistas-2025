@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 
+
 interface RevealNumbersSectionProps {
   title?: string
   highlightedWord?: string
@@ -103,22 +104,20 @@ export default function RevealNumbersSection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Warehouse Illustration */}
           <motion.div className="flex justify-center lg:justify-start" variants={slideInLeft}>
-            <motion.div
-              className="relative max-w-md w-full"
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-            >
-              {/* Warehouse Illustration */}
-             <Image  
-             src={'/images/Home/Banner2.jpg'}  
-             alt="World Map showing AMZ Vistas logistics locations"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                  priority / >
-            </motion.div>
+             <motion.div className="relative" >
+                         <div className="relative">
+                           <Image
+                             src="/images/Home/Banner2.jpg"
+                             alt="World Map showing AMZ Vistas logistics locations"
+                             width={600}
+                             height={400}
+                             className="w-full h-auto"
+                             priority
+                           />
+           
+                         
+                         </div>
+                       </motion.div>
           </motion.div>
 
           {/* Right side - Content */}
