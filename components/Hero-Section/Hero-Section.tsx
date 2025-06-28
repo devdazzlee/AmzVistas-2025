@@ -25,7 +25,7 @@ export default function HeroSection() {
             {/* Left Content Section - 60% width */}
             <div className="flex-[0_0_60%] pr-8">
               <div className="max-w-4xl">
-                <h1 className="text-5xl lg:text-6xl xl:text-4xl font-extrabold text-white leading-tight mb-8">
+                <h1 className="text-2xl lg:text-6xl xl:text-4xl font-extrabold text-white leading-tight mb-8">
                   Building Foundation for
                   <br />
                   Success with

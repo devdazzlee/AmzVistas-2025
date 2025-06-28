@@ -122,7 +122,7 @@ export default function ProcessSection({
             variants={containerVariants}
           >
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6"
+              className="text-2xl md:text-2xl font-bold mb-6"
               variants={itemVariants}
             >
               <motion.span 

@@ -320,7 +320,7 @@ export default function JourneySection() {
             >
               <Award className="w-6 h-6" />
             </motion.span>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Revolutionize Your E-Commerce Journey</h1>
+            <h1 className="text-3xl md:text-6xl font-bold text-gray-900 mb-4">Revolutionize Your E-Commerce Journey</h1>
             {/* <motion.div
               className="h-1 w-40 md:w-80 bg-gradient-to-r from-blue-400 to-orange-400 mx-auto rounded-full"
               initial={{ width: 0, opacity: 0 }}
@@ -404,7 +404,7 @@ export default function JourneySection() {
               </motion.div>
 
               <motion.h3
-                className="text-3xl font-bold text-gray-900 text-center mb-8 leading-tight"
+                className="text-2xl font-bold text-gray-900 text-center mb-8 leading-tight"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.6, duration: 0.8 }}
@@ -447,7 +447,7 @@ export default function JourneySection() {
                 transition={{ delay: 2.4, duration: 0.8 }}
               >
                 <motion.div variants={buttonVariants} initial="rest" whileHover="hover" whileTap="tap">
-                  <Button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-10 py-7 text-lg font-bold rounded-xl shadow-lg shadow-blue-200">
+                  <Button className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white px-4 md:px-10 py-7 text-sm md:text-lg font-bold rounded-xl shadow-lg shadow-blue-200">
                     Schedule A Free Consultation
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
@@ -497,7 +497,7 @@ export default function JourneySection() {
               </motion.div>
 
               <motion.h3
-                className="text-3xl font-bold text-gray-900 text-center mb-8 leading-tight"
+                className="text-2xl font-bold text-gray-900 text-center mb-8 leading-tight"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.8, duration: 0.8 }}
@@ -540,7 +540,7 @@ export default function JourneySection() {
                 transition={{ delay: 2.6, duration: 0.8 }}
               >
                 <motion.div variants={buttonVariants} initial="rest" whileHover="hover" whileTap="tap">
-                  <Button className="bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white px-10 py-7 text-lg font-bold rounded-xl shadow-lg shadow-orange-200">
+                  <Button className="bg-gradient-to-r from-orange-500 to-orange-700 hover:from-orange-600 hover:to-orange-800 text-white px-4 md:px-10 py-7 text-sm md:text-lg font-bold rounded-xl shadow-lg shadow-blue-200">
                     Schedule A Free Consultation
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
