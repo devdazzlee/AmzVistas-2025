@@ -1,5 +1,20 @@
-.gradient-text{
-        -webkit-text-fill-color: #0000;
+.gradient-text {
+    -webkit-text-fill-color: #0000;
     background: linear-gradient(45deg, #f69500, #007cc2);
     -webkit-background-clip: text;
+}
+
+.gradient-line {
+    display: block;
+    /* makes the span respect w/h */
+    width: 24rem;
+    /* your w-96 */
+    height: 0.25rem;
+    /* adjust thickness */
+    background: linear-gradient(45deg, #f69500, #007cc2);
+
+    margin-top: 0.5rem;
+    /* space from the heading */
+    border-radius: 2px;
+    /* optional rounding */
 }

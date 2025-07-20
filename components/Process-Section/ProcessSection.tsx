@@ -90,9 +90,9 @@ export default function ProcessSection({
           className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? "lg:grid-flow-col-dense" : ""}`}
         >
           {/* Image Section */}
-          <div className={`${reverse ? "lg:col-start-2" : ""}`}>
+          <div className={` max-h-150 ${reverse ? "lg:col-start-2" : ""}`}>
             <motion.div 
-              className="relative overflow-hidden rounded-lg shadow-lg"
+              className="relative  rounded-lg shadow-lg "
               variants={imageVariants}
               whileHover={{ 
                 scale: 1.03,

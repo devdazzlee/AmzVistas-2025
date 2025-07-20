@@ -12,6 +12,15 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 const page = () => {
+
+  const images = [
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-1.jpg",
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-2.jpg",
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-3.jpg",
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-4.jpg",
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-5.jpg",
+    "/images/Amazon-Fba-Automation/Succes-Slides/succes-6.jpg",
+  ];
   return (
     <>
       <Banner
@@ -86,7 +95,11 @@ const page = () => {
         ]}
       />
       <AwarenessSection />
-      <SuccessSlider />
+      <SuccessSlider
+        images={images}
+        title="What Our Clients Have Achieved"
+        settings={{ autoplaySpeed: 3000 }}
+      />
       <ServiceCard
         heading="Launch Your Project Today with Our Amazon FBA Automation Services"
         isPara={true}
