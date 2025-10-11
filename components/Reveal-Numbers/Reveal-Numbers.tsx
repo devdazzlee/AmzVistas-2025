@@ -17,7 +17,7 @@ interface RevealNumbersSectionProps {
 export default function RevealNumbersSection({
   title = "Reveal the",
   highlightedWord = "Numbers",
-  description1 = "Amz Vistas is a dynamic powerhouse, seamlessly blending logistics, wholesale distribution, and e-commerce seller management under one robust roof. With our headquarters in Los Angeles and strategically positioned warehouses and prep centers in Texas, Florida, New York, and Michigan, we are poised to support your e-commerce endeavors efficiently.",
+  description1 = "Amazon Strategy is a dynamic powerhouse, seamlessly blending logistics, wholesale distribution, and e-commerce seller management under one robust roof. With our headquarters in Los Angeles and strategically positioned warehouses and prep centers in Texas, Florida, New York, and Michigan, we are poised to support your e-commerce endeavors efficiently.",
   description2 = "Our mission is grand: to pave the way for effortless entry into the vast $5 trillion e-commerce automation platform. We cater to both aspiring retail investors and seasoned institutional players with equal finesse. Your journey to e-commerce triumph begins here!",
   buttonText = "Get A Free Consultation Now!",
 //   onButtonClick,
@@ -108,7 +108,7 @@ export default function RevealNumbersSection({
                          <div className="relative">
                            <Image
                              src="/images/Home/Banner2.jpg"
-                             alt="World Map showing AMZ Vistas logistics locations"
+                             alt="World Map showing Amazon Strategy logistics locations"
                              width={600}
                              height={400}
                              className="w-full h-auto"

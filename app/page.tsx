@@ -25,7 +25,7 @@ export default function Home() {
    <CarouselSection/>
    <JourneySection/>
     <ProcessSection
-      title="Discover the Gateway to Your E-commerce Success! Turn your dreams of a thriving e-commerce business into reality with Amz Vistas."
+      title="Discover the Gateway to Your E-commerce Success! Turn your dreams of a thriving e-commerce business into reality with Amazon Strategy."
       highlightText=""
       secondaryText=""
       description="We are a dynamic powerhouse, seamlessly blending logistics, wholesale distribution, and e-commerce seller management under one robust roof. With our headquarters in Los Angeles and strategically positioned warehouses and prep centers in Texas, Florida, New York, and Michigan, we are poised to support your e-commerce endeavors efficiently."

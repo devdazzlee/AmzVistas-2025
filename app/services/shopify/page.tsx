@@ -1,118 +1,207 @@
 "use client";
 
-import AwarenessSection from "@/components/Awareness-Section/Awareness-Section";
-import BannerCard from "@/components/Banner-Card/Banner-Card";
-import Banner from "@/components/Banner/Banner";
-import FeaturesSection from "@/components/Features-Section/Features-Section";
-import ProcessSection from "@/components/Process-Section/ProcessSection";
-import ServiceCard from "@/components/Services/Service-Card/Service-Card";
-import ServiceDetail from "@/components/Services/Service-Detail/Service-Detail";
-import SuccessSlider from "@/components/Succes-Slider/Succes-Slider";
-import { Button } from "@/components/ui/button";
-import React from "react";
+import ServiceHero from "@/components/Services/Service-Hero/Service-Hero";
+import AnimatedFeatures from "@/components/Services/Animated-Features/Animated-Features";
+import ServiceStats from "@/components/Services/Service-Stats/Service-Stats";
+import { 
+  ShoppingCart, 
+  Zap, 
+  TrendingUp, 
+  Package, 
+  CreditCard, 
+  Globe,
+  Smartphone,
+  Settings,
+  BarChart3
+} from "lucide-react";
+import CallToAction from "@/components/Call-To-Action-Section/Call-To-Action-Section";
 
-const page = () => {
-  const images = [
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-1.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-2.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-3.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-4.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-5.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-6.jpg",
+export default function ShopifyPage() {
+  const features = [
+    {
+      icon: ShoppingCart,
+      title: "Complete Store Setup",
+      description: "Professional Shopify store design and setup. We handle everything from theme customization to product catalog integration.",
+      color: "from-green-500 to-emerald-600",
+    },
+    {
+      icon: Package,
+      title: "Product Management",
+      description: "Automated inventory syncing, product imports, and catalog management. Keep your store updated effortlessly.",
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      icon: Zap,
+      title: "Conversion Optimization",
+      description: "Optimize your store for maximum sales. A/B testing, checkout optimization, and conversion rate improvements.",
+      color: "from-purple-500 to-pink-600",
+    },
+    {
+      icon: CreditCard,
+      title: "Payment Integration",
+      description: "Secure payment gateway setup with multiple options. Shopify Payments, Stripe, PayPal, and more.",
+      color: "from-orange-500 to-red-600",
+    },
+    {
+      icon: Globe,
+      title: "Multi-Channel Selling",
+      description: "Expand your reach with integrated selling on Facebook, Instagram, Google, and Amazon from your Shopify store.",
+      color: "from-pink-500 to-rose-600",
+    },
+    {
+      icon: BarChart3,
+      title: "Analytics & Reporting",
+      description: "Track sales, customer behavior, and store performance with detailed analytics and actionable insights.",
+      color: "from-indigo-500 to-purple-600",
+    },
   ];
+
+  const stats = [
+    { value: "180", label: "Stores Built", suffix: "+" },
+    { value: "250", label: "Conversion Rate Increase", suffix: "%" },
+    { value: "8", label: "Million Revenue Generated", prefix: "$", suffix: "M" },
+    { value: "100", label: "Client Satisfaction", suffix: "%" },
+  ];
+
   return (
     <>
-      <Banner
-        title=""
-        highlightText="Shopify Automation Service"
-        backgroundImage="/images/Amazon-Fba-Automation/Amazon-Fba-Automation.jpg"
+      <ServiceHero
+        title="Shopify Stores That Sell"
+        subtitle="Professional Shopify Development"
+        description="Launch and scale your Shopify store with expert development and optimization. We create beautiful, high-converting stores that turn visitors into loyal customers."
+        primaryColor="from-green-600 via-emerald-600 to-teal-600"
+        secondaryColor="from-green-500 to-emerald-500"
+        features={["Custom Design", "Mobile Optimized", "Sales Focused"]}
+        rating="5.0"
+        clients="180+"
       />
-      <ProcessSection
-        title="Experience Success with Shopify Automation Services."
-        highlightText=""
-        secondaryText=""
-        description="Staying ahead of the competition requires innovation. That’s where our Done For You Shopify Store can help. As a top Shopify automation agency, we specialize in creating automated stores that save you time and enhance overall business performance. Our experts streamline processes to drive sales growth and increase customer satisfaction levels, ensuring automation supports your brand expansion seamlessly."
-        imageSrc="/images/Shopify/Banner1.svg"
-        imageAlt="Step-by-step process blocks"
-      >
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            variant="outline"
-            className="border-teal-600 text-teal-600 hover:bg-teal-50"
-          >
-            Schedule A Free Consultation Now!
-          </Button>
+
+      <ServiceStats stats={stats} backgroundColor="bg-gradient-to-r from-green-600 to-emerald-600" />
+
+      <AnimatedFeatures
+        features={features}
+        title="Complete Shopify Solutions"
+        subtitle="Everything you need for a successful Shopify store"
+      />
+
+      {/* Shopify Features */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Why Choose Shopify?
+            </h2>
+            <p className="text-xl text-gray-600">
+              The world's leading e-commerce platform
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: Smartphone, title: "Mobile-First", desc: "Beautiful on every device" },
+              { icon: Settings, title: "Easy Management", desc: "Simple admin dashboard" },
+              { icon: Zap, title: "Lightning Fast", desc: "Optimized performance" },
+              { icon: Globe, title: "Global Reach", desc: "Sell worldwide easily" },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                  <p className="text-gray-600">{item.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </ProcessSection>
-      <BannerCard
-        heading="Unleashing the Power of Shopify Automation."
-        ishead2={false}
-        paragraph="Empower your finances to work for you with Amz Vistas."
-      />
-      <FeaturesSection />
+      </div>
 
-      <BannerCard
-        heading="Amz Vistas is Here – Your Ultimate Shopify Destination!"
-        ishead2={true}
-        heading2="Instead of experimenting randomly, adopt our proven strategies for success with Amz Vistas."
-        btnTxt="Schedule A Free Consultation Now!"
-      />
+      {/* Packages */}
+      <div className="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Shopify Development Packages
+            </h2>
+            <p className="text-xl text-gray-600">
+              Choose the right package for your business
+            </p>
+          </div>
 
-      <ServiceCard
-        heading="The Shopify dropshipping game-changer!"
-        isPara={false}
-        isButton={false}
-      />
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Starter Store",
+                price: "$2,499",
+                features: [
+                  "Custom theme setup",
+                  "Up to 50 products",
+                  "Mobile optimization",
+                  "Basic SEO setup",
+                  "Payment integration",
+                  "2 revisions",
+                ],
+              },
+              {
+                name: "Professional Store",
+                price: "$4,999",
+                features: [
+                  "Custom theme design",
+                  "Unlimited products",
+                  "Advanced SEO",
+                  "App integrations",
+                  "Email marketing setup",
+                  "5 revisions",
+                  "2 months support",
+                ],
+                highlighted: true,
+              },
+              {
+                name: "Enterprise Store",
+                price: "$9,999",
+                features: [
+                  "Fully custom design",
+                  "Custom functionality",
+                  "Multi-currency support",
+                  "Advanced integrations",
+                  "Marketing automation",
+                  "Unlimited revisions",
+                  "6 months support",
+                ],
+              },
+            ].map((pkg, index) => (
+              <div
+                key={index}
+                className={`bg-white rounded-2xl p-8 ${
+                  pkg.highlighted ? "border-2 border-green-500 shadow-2xl scale-105" : "shadow-lg"
+                }`}
+              >
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
+                <div className="text-4xl font-bold text-green-600 mb-6">{pkg.price}</div>
+                <ul className="space-y-3 mb-8">
+                  {pkg.features.map((feature, fIndex) => (
+                    <li key={fIndex} className="flex items-center gap-2 text-gray-700">
+                      <div className="w-2 h-2 bg-green-600 rounded-full" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <button className={`w-full py-3 rounded-xl font-bold ${
+                  pkg.highlighted
+                    ? "bg-gradient-to-r from-green-600 to-emerald-600 text-white"
+                    : "bg-gray-100 text-gray-900"
+                }`}>
+                  Get Started
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-      <ProcessSection
-        title="Unlocking the True Potential of Your Business"
-        highlightText=""
-        secondaryText=""
-        description="An automated Shopify store never sleeps! Imagine having a virtual assistant on call 24/7 to handle customer inquiries, process orders, and provide support. With Amz Vistas's automation services, your business remains open to serve customers from different time zones around the globe!"
-        imageSrc="/images/Shopify/Banner2.png"
-        imageAlt="Step-by-step process blocks"
-      >
-
-      </ProcessSection>
-
-      <ProcessSection
-        reverse={true}
-        title="Decisive Decision-Making Based on Data"
-        highlightText=""
-        secondaryText=""
-        description="Data is at the heart of modern business. That's why Amz Vistas's automation services incorporate cutting-edge analytics tools that offer insights into customer behaviors, sales trends, and more. Gain the power to make informed decisions and continually optimize your store's performance."
-        imageSrc="/images/Shopify/Banner3.png"
-        imageAlt="Step-by-step process blocks"
-      >
-
-      </ProcessSection>
-
-      <ProcessSection
-        title="Decisive Decision-Making Based on Data"
-        highlightText=""
-        secondaryText=""
-        description="Data is at the heart of modern business. That's why Amz Vistas's automation services incorporate cutting-edge analytics tools that offer insights into customer behaviors, sales trends, and more. Gain the power to make informed decisions and continually optimize your store's performance."
-        imageSrc="/images/Shopify/Banner4.png"
-        imageAlt="Step-by-step process blocks"
-      >
-
-      </ProcessSection>
-      <AwarenessSection />
-      <SuccessSlider
-        images={images}
-        title="What Our Clients Have Achieved"
-        settings={{ autoplaySpeed: 3000 }}
-      />
-      <ServiceCard
-        heading="Launch Your Project Today with Our Shopify Automation Services"
-        isPara={true}
-        paraText="Making the decision to automate your Shopify store is an integral step toward increasing efficiency and profitability. Join us on this exciting journey with Amz Vistas."
-        isButton={true}
-        buttonText="Book Call"
-        isBlueBg={true}
-      />
+      <CallToAction />
     </>
   );
-};
-
-export default page;
+}

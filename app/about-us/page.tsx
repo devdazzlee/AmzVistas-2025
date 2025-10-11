@@ -16,11 +16,11 @@ const page = () => {
     />
     <AnimatedStorySection  imageSrc='/images/About_Us/Our_Story.png' />
     <VisionSection/>
-    <AnimatedStorySection title='Why consider Amz Vistas?'
+    <AnimatedStorySection title='Why consider Amazon Strategy?'
     
     imageSrc='/images/About_Us/Why_Amz_Vistas.png'
     content={[
-      "Amz Vistas is not just an ordinary managed e-commerce supplier. Our e-commerce growth agency and consulting services are built upon a sustainable infrastructure. At our core, we are a wholesale distributor and shipping company, fully aware that reaching the level of automation required for a successful online store is nearly impossible without an expert team. That's why we created a platform designed to elevate your e-commerce automation business to new heights.",
+      "Amazon Strategy is not just an ordinary managed e-commerce supplier. Our e-commerce growth agency and consulting services are built upon a sustainable infrastructure. At our core, we are a wholesale distributor and shipping company, fully aware that reaching the level of automation required for a successful online store is nearly impossible without an expert team. That's why we created a platform designed to elevate your e-commerce automation business to new heights.",
       "We are confident in our ability to help you achieve your goals, offering a buy-back guarantee in writing. We handle all order fulfillment, returns, and more, ensuring an easier process and comprehensive management of your company by the most qualified staff in the field."
     ]} />
     <MapContact/>

@@ -1,115 +1,163 @@
 "use client";
 
-import AwarenessSection from "@/components/Awareness-Section/Awareness-Section";
-import BannerCard from "@/components/Banner-Card/Banner-Card";
-import Banner from "@/components/Banner/Banner";
-import FeaturesSection from "@/components/Features-Section/Features-Section";
-import ProcessSection from "@/components/Process-Section/ProcessSection";
-import ServiceCard from "@/components/Services/Service-Card/Service-Card";
-import ServiceDetail from "@/components/Services/Service-Detail/Service-Detail";
-import SuccessSlider from "@/components/Succes-Slider/Succes-Slider";
-import { Button } from "@/components/ui/button";
-import React from "react";
+import ServiceHero from "@/components/Services/Service-Hero/Service-Hero";
+import AnimatedFeatures from "@/components/Services/Animated-Features/Animated-Features";
+import ServiceStats from "@/components/Services/Service-Stats/Service-Stats";
+import { 
+  Package, 
+  TrendingUp, 
+  Shield, 
+  DollarSign, 
+  BarChart3, 
+  Users,
+  Truck,
+  Star,
+  CheckCircle2
+} from "lucide-react";
+import CallToAction from "@/components/Call-To-Action-Section/Call-To-Action-Section";
 
-const page = () => {
-
-  const images = [
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-1.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-2.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-3.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-4.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-5.jpg",
-    "/images/Amazon-Fba-Automation/Succes-Slides/succes-6.jpg",
+export default function AmazonFBAPage() {
+  const features = [
+    {
+      icon: Package,
+      title: "Product Sourcing",
+      description: "Find profitable products with high demand. Our expert team analyzes market trends and identifies winning opportunities.",
+      color: "from-orange-500 to-amber-600",
+    },
+    {
+      icon: TrendingUp,
+      title: "Listing Optimization",
+      description: "Rank on page 1 with SEO-optimized listings. Professional copywriting and keyword research that converts.",
+      color: "from-blue-500 to-cyan-600",
+    },
+    {
+      icon: Truck,
+      title: "FBA Management",
+      description: "Complete FBA handling from prep to delivery. We manage inventory, shipments, and ensure stock levels.",
+      color: "from-green-500 to-emerald-600",
+    },
+    {
+      icon: DollarSign,
+      title: "PPC Campaigns",
+      description: "Profitable advertising that lowers ACoS. Data-driven PPC management to maximize your ad ROI.",
+      color: "from-purple-500 to-pink-600",
+    },
+    {
+      icon: Shield,
+      title: "Account Health",
+      description: "Protect your seller account. Proactive monitoring and quick resolution of any policy issues.",
+      color: "from-red-500 to-rose-600",
+    },
+    {
+      icon: Star,
+      title: "Review Generation",
+      description: "Build social proof with strategic review generation. More 5-star reviews mean more sales.",
+      color: "from-yellow-500 to-orange-600",
+    },
   ];
+
+  const stats = [
+    { value: "350", label: "Sellers Managed", suffix: "+" },
+    { value: "20", label: "Average ROI", suffix: "%+" },
+    { value: "30", label: "Million Revenue", prefix: "$", suffix: "M+" },
+    { value: "99", label: "Account Health", suffix: ".5%" },
+  ];
+
   return (
     <>
-      <Banner
-        title=""
-        highlightText="Best Amazon FBA Automation Service"
-        backgroundImage="/images/Amazon-Fba-Automation/Amazon-Fba-Automation.jpg"
+      <ServiceHero
+        title="Amazon FBA Automation Excellence"
+        subtitle="Full-Service FBA Management"
+        description="Build a profitable Amazon FBA business without the headaches. We handle everything from product research to customer service, so you can earn passive income while we grow your business."
+        primaryColor="from-orange-600 via-amber-600 to-yellow-600"
+        secondaryColor="from-orange-500 to-amber-500"
+        features={["Proven System", "Buyback Guarantee", "20% ROI"]}
+        rating="4.9"
+        clients="350+"
       />
-      <ProcessSection
-        title="Immerse Yourself in Our AI-Centric Amazon FBA Automation Model – No Ad Budget Required!"
-        highlightText=""
-        secondaryText=""
-        description="Experience profitability within the first month of launch. With decades of e-commerce mastery, we've crafted sustainable assets, aligning our success with yours. Join us in a model where the interests of our business seamlessly intertwine with the prosperity of our clients. Elevate your e-commerce journey with innovation and profitability at every turn!"
-        imageSrc="/images/Amazon-Fba-Automation/Amazo-Banner-1.jpg"
-        imageAlt="Step-by-step process blocks"
-      >
-        <div className="flex flex-col sm:flex-row gap-4">
-          <Button
-            variant="outline"
-            className="border-teal-600 text-teal-600 hover:bg-teal-50"
-          >
-            Get A Free Consultation Now!
-          </Button>
-        </div>
-      </ProcessSection>
-      <BannerCard
-        heading="Invest with Confidence in Amazon Seller Automation!"
-        ishead2={false}
-        paragraph="Empower your finances to work for you with Amz Vistas. Discover an automated investment portfolio designed for sustainable and scalable cash flow."
-      />
-      <FeaturesSection />
 
-      <BannerCard
-        heading="Invest with Confidence in Amazon Seller Automation!"
-        ishead2={true}
-        heading2="Amz Vistas offers a Buyback Guarantee ensuring a 100% ROI on your investment."
-        btnTxt="Get A Free Consultation Now!"
+      <ServiceStats stats={stats} backgroundColor="bg-gradient-to-r from-orange-600 to-amber-600" />
+
+      <AnimatedFeatures
+        features={features}
+        title="Complete Amazon FBA Solution"
+        subtitle="Everything you need to succeed with Amazon FBA"
       />
-      <ServiceCard
-        heading="Comprehensive Amazon FBA Solutions"
-        isPara={true}
-        paraText="Our team of experts is dedicated to optimizing your Amazon FBA experience, from product research to inventory management."
-        isButton={false}
-      />
-      <ServiceDetail
-        imageSrc="/images/Amazon-Fba-Automation/Service-Detail-1.png"
-        listArray={[
-          "Assistance in establishing LLC, obtaining EIN, and setting up W9",
-          "Creation of e-commerce website with product setup",
-          "Amazon FBA account setup",
-          "Comprehensive management of Amazon FBA seller account",
-          "Engagement and communication with brands",
-        ]}
-      />
-      <ServiceDetail
-        imageSrc="/images/Amazon-Fba-Automation/Service-Detail-2.png"
-        listArray={[
-          "Approval acquisition to become official wholesalers for brands",
-          "Unlimited product listing creation",
-          "Management of orders and inventory",
-          "Order fulfillment for 12 months at our warehouse facility",
-        ]}
-        reverse={true}
-      />
-      <ServiceDetail
-        imageSrc="/images/Amazon-Fba-Automation/Service-Detail-3.png"
-        listArray={[
-          "Competitor research for identifying winning products",
-          "Options for Shipping Products from Seller to Prep Center",
-          "Guaranteed profit margins of 15–25%",
-          "Strategies for winning the Buy Box",
-          "Designated Amazon wholesale automation expert",
-        ]}
-      />
-      <AwarenessSection />
-      <SuccessSlider
-        images={images}
-        title="What Our Clients Have Achieved"
-        settings={{ autoplaySpeed: 3000 }}
-      />
-      <ServiceCard
-        heading="Launch Your Project Today with Our Amazon FBA Automation Services"
-        isPara={true}
-        paraText="Making the decision to automate your Shopify store is an integral step toward increasing efficiency and profitability. Join us on this exciting journey with Amz Vistas."
-        isButton={true}
-        buttonText="Book Call"
-        isBlueBg={true}
-      />
+
+      {/* What's Included */}
+      <div className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Complete Done-For-You Amazon FBA
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                We build and manage your entire Amazon FBA business so you can focus on growing your wealth.
+              </p>
+
+              <div className="space-y-4">
+                {[
+                  "LLC Formation & Business Setup",
+                  "Amazon Seller Account Creation",
+                  "Wholesale Product Sourcing",
+                  "Brand Relationship Management",
+                  "Professional Product Listings",
+                  "Inventory Management System",
+                  "FBA Prep & Shipping",
+                  "PPC Campaign Management",
+                  "Order & Customer Service",
+                  "Monthly Performance Reports",
+                  "Dedicated Account Manager",
+                  "100% ROI Buyback Guarantee",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0" />
+                    <span className="text-gray-700 text-lg">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Investment Options</h3>
+              
+              <div className="space-y-6">
+                {[
+                  { name: "Silver Package", investment: "$25,000", revenue: "$10K-$25K/mo", roi: "15-20%" },
+                  { name: "Gold Package", investment: "$50,000", revenue: "$30K-$60K/mo", roi: "18-25%" },
+                  { name: "Platinum Package", investment: "$100,000", revenue: "$75K-$150K/mo", roi: "20-30%" },
+                ].map((pkg, index) => (
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">{pkg.name}</h4>
+                        <div className="text-3xl font-bold text-orange-600 mt-2">{pkg.investment}</div>
+                      </div>
+                    </div>
+                    <div className="space-y-2 text-sm border-t pt-4">
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Monthly Revenue:</span>
+                        <span className="font-bold text-gray-900">{pkg.revenue}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-gray-600">Expected ROI:</span>
+                        <span className="font-bold text-green-600">{pkg.roi}</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button className="w-full mt-8 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-bold py-4 rounded-xl hover:shadow-lg transition-shadow">
+                Schedule Free Consultation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <CallToAction />
     </>
   );
-};
-
-export default page;
+}

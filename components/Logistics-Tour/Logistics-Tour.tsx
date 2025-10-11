@@ -25,10 +25,10 @@ interface LogisticsTourSectionProps {
 }
 
 export default function LogisticsTourSection({
-  title = "Explore Amz Vistas logistics world with an exclusive tour of our Central Levittown facilities.",
-  highlightedWords = ["Amz Vistas", "Central Levittown"],
+  title = "Explore Amazon Strategy logistics world with an exclusive tour of our Central Levittown facilities.",
+  highlightedWords = ["Amazon Strategy", "Central Levittown"],
   description = "Dive into the logistics process, operations, private label brand development, and wholesale journey. We prioritize transparency, welcoming all to witness the heart of our operations.",
-  tourDescription = "Schedule your tour today for a firsthand experience of Amz Vistas's commitment to openness and innovation.",
+  tourDescription = "Schedule your tour today for a firsthand experience of Amazon Strategy's commitment to openness and innovation.",
   buttonText = "Get A Free Consultation Now!",
   onButtonClick = () => console.log("Consultation button clicked"),
   locations = [
@@ -152,7 +152,7 @@ export default function LogisticsTourSection({
               <div className="relative">
                 <Image
                   src="/images/Home/Banner4.png"
-                  alt="World Map showing AMZ Vistas logistics locations"
+                  alt="World Map showing Amazon Strategy logistics locations"
                   width={600}
                   height={400}
                   className="w-full h-auto"

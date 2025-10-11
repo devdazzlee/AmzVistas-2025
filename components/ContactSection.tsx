@@ -227,7 +227,7 @@ export default function ContactSection() {
                       },
                       {
                         icon: Mail,
-                        text: "contact@amzvistas.com",
+                        text: "contact@amazonstrategy.com",
                         gradient: "from-blue-500 to-cyan-500",
                         bg: "from-blue-50 to-cyan-50",
                       },

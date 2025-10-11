@@ -36,10 +36,10 @@ export default function HeroSection() {
                 </h1>
 
                 <p className="text-white text-lg lg:text-xl leading-relaxed mb-10 max-w-3xl">
-                  Without a doubt, Amz Vistas is a thriving company that assists customers in generating cash by
+                  Without a doubt, Amazon Strategy is a thriving company that assists customers in generating cash by
                   planting the seeds of enterprises at Walmart and Amazon. Our infrastructure, license agreements, and a
                   large staff of professionals help clients all over the globe build and run successful e-commerce
-                  automation platforms. Find out why so many people are choosing Amz Vistas as their e-commerce
+                  automation platforms. Find out why so many people are choosing Amazon Strategy as their e-commerce
                   revolution partner.
                 </p>
 

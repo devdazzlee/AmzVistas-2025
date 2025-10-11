@@ -210,7 +210,7 @@ export default function FeaturesSection() {
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Heading */}
         <h2 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-12 max-w-5xl mx-auto leading-tight px-4">
-          Diversify Your Portfolio with a Sustainable Passive Income Stream – Introducing Amz Vistas Amazon FBA and
+          Diversify Your Portfolio with a Sustainable Passive Income Stream – Introducing Amazon Strategy Amazon FBA and
           Walmart Automation Models!
         </h2>
 

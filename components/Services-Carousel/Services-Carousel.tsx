@@ -8,16 +8,16 @@ import Image from "next/image"
 const slides = [
   {
     id: 1,
-    image: "/amazon-dashboard.png",
+    image: "/images/Home/HomeBanner.png",
     title: "Revolutionize Your E-Commerce Empire with Top-Notch Automation Services That Deliver Results",
     content: [
-      "Welcome to Amz Vistas – where we don't just manage e-commerce assets; we elevate them to unprecedented heights! Imagine a team of over 500 seasoned experts, all geared up to supercharge your online marketplace. We're not just service providers; we're your partners in profit, with a track record spanning more than ten years in product development and e-commerce marketplace operations. We are among the best e-commerce automation companies.",
+      "Welcome to Amazon Strategy – where we don't just manage e-commerce assets; we elevate them to unprecedented heights! Imagine a team of over 500 seasoned experts, all geared up to supercharge your online marketplace. We're not just service providers; we're your partners in profit, with a track record spanning more than ten years in product development and e-commerce marketplace operations. We are among the best e-commerce automation companies.",
       "Our journey has been nothing short of remarkable. Our team has achieved a whopping $300 million in revenue through countless challenges – and we're just getting started! What sets us apart is our rock-solid business model that consistently spells success. We're not here to make promises; we're here to deliver",
     ],
   },
   {
     id: 2,
-    image: "/placeholder.svg?height=600&width=400",
+    image: "/images/Amazon-Fba-Automation/Amazo-Banner-1.jpg",
     title: "Scale Your Amazon FBA Business with Proven Automation Strategies",
     content: [
       "Transform your Amazon FBA operations with our cutting-edge automation tools and strategies. Our proprietary systems handle everything from inventory management to customer service, allowing you to focus on growing your business while we handle the day-to-day operations.",
@@ -26,7 +26,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/placeholder.svg?height=600&width=400",
+    image: "/images/Home/Banner2.jpg",
     title: "Walmart Automation Services That Maximize Your Marketplace Potential",
     content: [
       "Expand your e-commerce empire beyond Amazon with our comprehensive Walmart automation services. Our expert team manages your entire Walmart marketplace presence, from product listing optimization to order fulfillment and customer support.",
@@ -35,7 +35,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/placeholder.svg?height=600&width=400",
+    image: "/images/Home/Banner3.png",
     title: "Complete E-Commerce Portfolio Management for Maximum ROI",
     content: [
       "Why limit yourself to one platform when you can dominate multiple marketplaces? Our comprehensive e-commerce automation services cover Amazon, Walmart, eBay, and other major platforms, creating a diversified portfolio that maximizes your return on investment.",
@@ -73,32 +73,30 @@ export default function CarouselSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Image */}
           <div className="relative">
-            <div className="relative h-[600px] w-full max-w-md mx-auto">
-              {slides[0].image === "/amazon-dashboard.png" && currentSlide === 0 ? (
-                <Image src="/amazon-dashboard.png" alt="Amazon Dashboard" fill className="object-contain" />
-              ) : (
-                <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 rounded-3xl flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-24 h-24 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-white text-2xl font-bold">{slides[currentSlide].id}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-800">Slide {slides[currentSlide].id}</h3>
-                    <p className="text-gray-600 mt-2">E-commerce Dashboard</p>
-                  </div>
-                </div>
-              )}
+            <div className="relative h-[600px] w-full max-w-md mx-auto overflow-hidden rounded-3xl shadow-2xl">
+              <Image 
+                src={slides[currentSlide].image} 
+                alt={slides[currentSlide].title}
+                fill 
+                className="object-cover transition-all duration-500"
+                priority
+              />
+              {/* Overlay gradient for better text visibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
 
             {/* Navigation arrows */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all z-10"
+              aria-label="Previous slide"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-lg transition-all z-10"
+              aria-label="Next slide"
             >
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>

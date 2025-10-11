@@ -10,7 +10,18 @@ export default function Footer() {
           {/* Company Info Section */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-             <Image  src={'/images/Logo/Logo.png'} alt={'logo'} width={150} height={150} />
+              <div className="relative w-12 h-12">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg transform rotate-6"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-2xl">AS</span>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">
+                  Amazon Strategy
+                </h3>
+                <p className="text-gray-400 text-xs">Your E-commerce Partner</p>
+              </div>
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -18,10 +29,10 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/amzvistas" className="text-gray-300 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/amazonstrategy" className="text-gray-300 hover:text-white transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
-              <a href="https://www.instagram.com/amzvistas.official/" className="text-gray-300 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/amazonstrategy.official/" className="text-gray-300 hover:text-white transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
             </div>
@@ -32,19 +43,44 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6 pb-2 border-b border-gray-600">Services</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Amazon FBA Automation
-                </a>
+                <Link href="/services/ecommerce-automation" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  E-commerce Automation
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Shopify Automation
-                </a>
+                <Link href="/services/amazon-automations" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Amazon Automations
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
-                  Walmart Automation
-                </a>
+                <Link href="/services/walmart-services" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Walmart Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/facebook-ads" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Facebook Ads
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/website-development" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Website Development
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/digital-marketing" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Digital Marketing
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/seo-service" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  SEO Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/smm-service" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  SMM
+                </Link>
               </li>
             </ul>
           </div>
@@ -54,19 +90,24 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-6 pb-2 border-b border-gray-600">Quick Links</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link href="/" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link href="/contact-us" className="text-gray-300 hover:text-white transition-colors text-sm">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
+                <Link href="/about-us" className="text-gray-300 hover:text-white transition-colors text-sm">
                   About Us
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/our-process" className="text-gray-300 hover:text-white transition-colors text-sm">
+                  Our Process
+                </Link>
               </li>
               <li>
                 <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm">
@@ -100,7 +141,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">contact@amzvistas.com</p>
+                <p className="text-gray-300 text-sm">contact@amazonstrategy.com</p>
               </div>
             </div>
           </div>

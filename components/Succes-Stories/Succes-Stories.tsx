@@ -19,7 +19,7 @@ export default function SuccessStoriesSection({
   rating = "4.5+",
   timeframe = "3+",
   title = "Experience Success Stories!",
-  description = "Our visionary leaders seized the opportunity to elevate the traditional done-for-you (DFY) Amazon business model into an innovative, data-driven approach. Rooted in robust logistics and fueled by constant innovation, Amz Vistas emerged as a leader in e-commerce automation. We exceeded our goal of creating a model where our business and clients' interests are intricately intertwined. Witness a journey with us where customer success is a testament to our shared prosperity!",
+  description = "Our visionary leaders seized the opportunity to elevate the traditional done-for-you (DFY) Amazon business model into an innovative, data-driven approach. Rooted in robust logistics and fueled by constant innovation, Amazon Strategy emerged as a leader in e-commerce automation. We exceeded our goal of creating a model where our business and clients' interests are intricately intertwined. Witness a journey with us where customer success is a testament to our shared prosperity!",
   buttonText = "Schedule A Free Consultation",
   onButtonClick = () => console.log("Button clicked"),
   showInfographic = true,
@@ -179,7 +179,7 @@ export default function SuccessStoriesSection({
               >
                 <Image
                   src="/images/Home/Banner3.png"
-                  alt="AMZ Vistas Business Process Infographic"
+                  alt="Amazon Strategy Business Process Infographic"
                   width={500}
                   height={400}
                   className="max-w-full h-auto"
