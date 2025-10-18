@@ -18,9 +18,9 @@ interface ProcessSectionProps {
 
 export default function ProcessSection({
   title = "Our",
-  highlightText = "Amazon Strategy",
+  highlightText = "Orbit Syndicate",
   secondaryText = "Process",
-  description = "With the help of our tested infrastructure, smooth-running onboarding process, and the 10+ years of expertise in Amazon and Walmart that we dedicate to every client, we want to make your Amazon Strategy e-commerce business the most flexible and long-lasting asset in your portfolio",
+  description = "With the help of our tested infrastructure, smooth-running onboarding process, and the 10+ years of expertise in Amazon and Walmart that we dedicate to every client, we want to make your Orbit Syndicate e-commerce business the most flexible and long-lasting asset in your portfolio",
   imageSrc = "/placeholder.svg?height=300&width=400",
   imageAlt = "Process illustration",
   reverse = false,

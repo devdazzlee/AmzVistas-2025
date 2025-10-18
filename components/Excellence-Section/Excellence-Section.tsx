@@ -117,7 +117,7 @@ export default function ExcellenceSection() {
 
   // Split title into words for animation
   const titleWords = "Discover the Excellence of".split(" ")
-  const brandName = "Amazon Strategy"
+  const brandName = "Orbit Syndicate"
   const serviceName = "Amazon FBA"
   const lastWord = "Automation"
 
@@ -256,7 +256,7 @@ export default function ExcellenceSection() {
               >
                 full potential
               </motion.span>{" "}
-              of your Amazon automation investments at Amazon Strategy, where pride meets innovation. Intrigued?
+              of your Amazon automation investments at Orbit Syndicate, where pride meets innovation. Intrigued?
             </motion.p>
 
             <motion.p
@@ -285,7 +285,7 @@ export default function ExcellenceSection() {
               whileHover={{ scale: 1.01 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-             {` With Amazon Strategy, you're not just getting a service provider but a team of   `}
+             {` With Orbit Syndicate, you're not just getting a service provider but a team of   `}
               <motion.span
                 className="font-semibold text-orange-500"
                 whileHover={{ scale: 1.05 }}

@@ -19,8 +19,8 @@ export default function AnimatedStorySection({
   title = "Our",
   highlightText = "Story",
   content = [
-    "A network of hundreds of clients, six unique warehouse locations across the US, and four domestic and foreign offices now utilize our infrastructure. Quality, performance, and transparency are the foundations of each client's involvement as we grow client wealth and enhance the value of their digital assets. The Amazon Strategy team has earned over five figures in income through online sales and is devoted to working as your business partner in the digital age.",
-    "The management team at Amazon Strategy has extensive experience in product development and e-commerce marketplaces, and they are dedicated automation service providers. When our founders encountered challenges in the e-commerce business, they established Amazon Strategy to provide a platform that automates and streamlines the key areas needed to run a successful e-commerce automation model.",
+    "A network of hundreds of clients, six unique warehouse locations across the US, and four domestic and foreign offices now utilize our infrastructure. Quality, performance, and transparency are the foundations of each client's involvement as we grow client wealth and enhance the value of their digital assets. The Orbit Syndicate team has earned over five figures in income through online sales and is devoted to working as your business partner in the digital age.",
+    "The management team at Orbit Syndicate has extensive experience in product development and e-commerce marketplaces, and they are dedicated automation service providers. When our founders encountered challenges in the e-commerce business, they established Orbit Syndicate to provide a platform that automates and streamlines the key areas needed to run a successful e-commerce automation model.",
   ],
   imageSrc = "/placeholder.svg?height=400&width=500",
   imageAlt = "E-commerce illustration",

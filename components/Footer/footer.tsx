@@ -1,4 +1,12 @@
-import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react"
+import { 
+  Facebook, 
+  Instagram, 
+  Twitter, 
+  Linkedin, 
+  MapPin, 
+  Phone, 
+  Mail 
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,32 +17,61 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info Section */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg transform rotate-6"></div>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-2xl">AS</span>
-                </div>
+            <div className="flex-shrink-0 flex items-center">
+              <Link href="/" className="flex items-center">
+                <div className="relative  w-auto md:w-64 h-38 md:h-42">
+                <Image
+                  src="/images/Logo.png"
+                  alt="Orbit Syndicate Logo"
+                    width={256}
+                    height={96}
+                  className="object-contain w-full h-full"
+                    priority
+                />
               </div>
-              <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-blue-400 bg-clip-text text-transparent">
-                  Amazon Strategy
-                </h3>
-                <p className="text-gray-400 text-xs">Your E-commerce Partner</p>
-              </div>
+              </Link>
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed">
               {`Let's turn your Billionaire dream into a reality together.`}
             </p>
 
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/amazonstrategy" className="text-gray-300 hover:text-white transition-colors">
-                <Facebook className="w-6 h-6" />
-              </a>
-              <a href="https://www.instagram.com/amazonstrategy.official/" className="text-gray-300 hover:text-white transition-colors">
-                <Instagram className="w-6 h-6" />
-              </a>
+            <div className="space-y-4">
+              <h5 className="text-sm font-semibold text-gray-300 mb-3">Follow Us</h5>
+              <div className="grid grid-cols-2 gap-3">
+                <a 
+                  href="https://www.facebook.com/orbitsyndicate" 
+                  className="flex items-center justify-center p-3 bg-gray-700 hover:bg-blue-600 rounded-lg transition-all duration-300 hover:scale-105 group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Facebook className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/orbitsyndicate.official/" 
+                  className="flex items-center justify-center p-3 bg-gray-700 hover:bg-pink-600 rounded-lg transition-all duration-300 hover:scale-105 group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Instagram className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                </a>
+                <a 
+                  href="https://twitter.com/orbitsyndicate" 
+                  className="flex items-center justify-center p-3 bg-gray-700 hover:bg-blue-400 rounded-lg transition-all duration-300 hover:scale-105 group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Twitter className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/orbitsyndicate" 
+                  className="flex items-center justify-center p-3 bg-gray-700 hover:bg-blue-700 rounded-lg transition-all duration-300 hover:scale-105 group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="w-5 h-5 text-gray-300 group-hover:text-white" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -141,7 +178,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">contact@amazonstrategy.com</p>
+                <p className="text-gray-300 text-sm">contact@orbitsyndicate.com</p>
               </div>
             </div>
           </div>
@@ -150,7 +187,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="mt-12 pt-8 border-t border-gray-600">
           <p className="text-center text-gray-400 text-sm">
-            © {new Date().getFullYear()} <Link href={'https://acesoface.com/'} className="underline">Ace Studios</Link>. All rights reserved.
+            © {new Date().getFullYear()} <Link href={'https://www.devdazzlee.vercel.app/'} className="underline">devdazzlee</Link>. All rights reserved.
           </p>
         </div>
       </div>

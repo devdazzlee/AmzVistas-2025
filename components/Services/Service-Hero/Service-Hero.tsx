@@ -13,6 +13,7 @@ interface ServiceHeroProps {
   features?: string[];
   rating?: string;
   clients?: string;
+  backgroundImage?: string;
 }
 
 export default function ServiceHero({
@@ -24,9 +25,21 @@ export default function ServiceHero({
   features = [],
   rating = "4.9",
   clients = "500+",
+  backgroundImage,
 }: ServiceHeroProps) {
   return (
     <div className={`relative bg-gradient-to-br ${primaryColor} overflow-hidden`}>
+      {/* Background Image */}
+      {backgroundImage && (
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat opacity-30"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60" />
+        </div>
+      )}
+      
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

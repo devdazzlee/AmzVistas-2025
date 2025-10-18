@@ -274,7 +274,7 @@ export default function MissionStatement() {
               variants={paragraphVariants}
               custom={2}
             >
-              As you collaborate with Amazon Strategy, watch your passive income potential grow. We eagerly anticipate the
+              As you collaborate with Orbit Syndicate, watch your passive income potential grow. We eagerly anticipate the
               opportunity to assist you in expanding your business and reaching your entrepreneurial aspirations.
             </motion.p>
           </div>

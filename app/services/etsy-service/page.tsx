@@ -12,143 +12,527 @@ import {
   Package,
   Heart,
   Search,
-  Award
+  Award,
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  Globe,
+  Shield,
+  Users,
+  DollarSign,
+  Zap,
+  Target,
+  Headphones,
+  Monitor,
+  Laptop,
+  Server,
+  Database,
+  Cloud,
+  Lock,
+  RefreshCw,
+  Store,
+  Brain,
+  Cpu,
+  Mail,
+  FileText,
+  Video,
+  Megaphone,
+  BarChart3
 } from "lucide-react";
 import CallToAction from "@/components/Call-To-Action-Section/Call-To-Action-Section";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function EtsyServicePage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   const features = [
     {
       icon: ShoppingBag,
       title: "Shop Setup & Branding",
-      description: "Create a professional Etsy shop that stands out. Complete branding, banner design, and shop policies that build trust.",
+      description: "Create a professional Etsy shop that stands out. Complete branding, banner design, and shop policies that build trust and attract customers.",
       color: "from-orange-500 to-red-600",
+      image: "/images/Etsy/sell-on-etsy.webp",
+      benefits: ["Professional Branding", "Shop Banner Design", "Policy Creation", "Trust Building"]
     },
     {
       icon: Camera,
       title: "Product Photography",
-      description: "Professional product photos that sell. High-quality images optimized for Etsy's platform and mobile viewing.",
+      description: "Professional product photos that sell. High-quality images optimized for Etsy's platform and mobile viewing to maximize conversions.",
       color: "from-purple-500 to-pink-600",
+      image: "/images/Etsy/images.jpg",
+      benefits: ["High-Quality Images", "Mobile Optimization", "Conversion Focused", "Platform Specific"]
     },
     {
       icon: Search,
       title: "Etsy SEO Mastery",
-      description: "Get found in Etsy search. We optimize titles, tags, and descriptions using proven Etsy SEO strategies.",
+      description: "Get found in Etsy search. We optimize titles, tags, and descriptions using proven Etsy SEO strategies to increase visibility.",
       color: "from-green-500 to-emerald-600",
+      image: "/images/Etsy/eRank-Blog-Post-Etsy-SEO-Basics-1312x600-px.webp",
+      benefits: ["Title Optimization", "Tag Strategy", "Description SEO", "Search Visibility"]
     },
     {
       icon: Tag,
       title: "Listing Optimization",
-      description: "Convert browsers into buyers. Compelling product descriptions and strategic pricing that maximize sales.",
+      description: "Convert browsers into buyers. Compelling product descriptions and strategic pricing that maximize sales and profitability.",
       color: "from-blue-500 to-cyan-600",
+      image: "/images/Etsy/images (1).jpg",
+      benefits: ["Compelling Descriptions", "Strategic Pricing", "Sales Optimization", "Profit Maximization"]
     },
     {
       icon: Star,
       title: "Review Management",
-      description: "Build your 5-star reputation. We help you get more reviews and handle customer feedback professionally.",
+      description: "Build your 5-star reputation. We help you get more reviews and handle customer feedback professionally to build trust.",
       color: "from-yellow-500 to-orange-600",
+      image: "/images/Etsy/images (2).jpg",
+      benefits: ["Review Strategy", "Customer Service", "Reputation Building", "Trust Enhancement"]
     },
     {
-      icon: Package,
-      title: "Order Fulfillment",
-      description: "Streamline your operations. From inventory management to shipping, we optimize your fulfillment process.",
+      icon: TrendingUp,
+      title: "Sales Growth",
+      description: "Scale your Etsy business. Advanced strategies for increasing sales, managing inventory, and expanding your product line.",
       color: "from-indigo-500 to-purple-600",
+      image: "/images/Etsy/images (3).jpg",
+      benefits: ["Sales Strategy", "Inventory Management", "Product Expansion", "Business Scaling"]
     },
   ];
 
   const stats = [
-    { value: "150", label: "Shops Managed", suffix: "+" },
+    { value: "500", label: "Etsy Shops Managed", suffix: "+" },
+    { value: "85", label: "Average Rating", suffix: "%" },
     { value: "300", label: "Sales Increase", suffix: "%" },
-    { value: "4", label: "Average Rating", suffix: ".9" },
-    { value: "50", label: "Featured Listings", suffix: "K+" },
+    { value: "24", label: "Support Available", suffix: "/7" },
+    { value: "50", label: "Countries Served", suffix: "+" },
+    { value: "5", label: "Years Experience", suffix: "+" },
+  ];
+
+  const benefits = [
+    {
+      icon: Clock,
+      title: "Save 40+ Hours Weekly",
+      description: "Focus on creating while we handle all technical aspects",
+      color: "from-orange-500 to-red-500"
+    },
+    {
+      icon: DollarSign,
+      title: "Increase Revenue by 250%",
+      description: "Our optimization strategies drive significant sales growth",
+      color: "from-green-500 to-emerald-500"
+    },
+    {
+      icon: Shield,
+      title: "100% Etsy Compliant",
+      description: "Stay safe with policies that protect your shop",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: Users,
+      title: "Dedicated Etsy Team",
+      description: "Specialists who understand the Etsy marketplace",
+      color: "from-blue-500 to-cyan-500"
+    }
   ];
 
   return (
     <>
-      <ServiceHero
-        title="Turn Your Etsy Shop Into A Business"
-        subtitle="Professional Etsy Management"
-        description="Scale your handmade, vintage, or craft business with expert Etsy management. We handle everything so you can focus on creating while we grow your sales."
-        primaryColor="from-orange-600 via-red-600 to-rose-600"
-        secondaryColor="from-orange-500 to-red-500"
-        features={["Full Management", "SEO Optimized", "Sales Growth"]}
-        rating="4.9"
-        clients="150+"
-      />
+      {/* Custom Enhanced Banner */}
+      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-orange-600 via-red-600 to-pink-600">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+            style={{ backgroundImage: "url('/images/Etsy/etsy0-1.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-600/80 via-red-600/80 to-pink-600/80" />
+        </div>
 
-      <ServiceStats stats={stats} backgroundColor="bg-gradient-to-r from-orange-600 to-red-600" />
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -top-1/2 -right-1/2 w-full h-full bg-white rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              rotate: [90, 0, 90],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-white rounded-full blur-3xl"
+          />
+        </div>
 
-      <AnimatedFeatures
-        features={features}
-        title="Complete Etsy Shop Management"
-        subtitle="Everything you need to succeed on Etsy"
-      />
-
-      {/* Shop Types */}
-      <div className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Shop Types We Specialize In
-            </h2>
-            <p className="text-xl text-gray-600">
-              Expert management for every Etsy category
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: "🎨", title: "Handmade Items", desc: "Jewelry, crafts, art, and custom creations" },
-              { icon: "🪐", title: "Vintage Goods", desc: "Collectibles, antiques, and vintage treasures" },
-              { icon: "🎁", title: "Craft Supplies", desc: "Materials, tools, and supplies for makers" },
-              { icon: "👕", title: "Apparel", desc: "Clothing, accessories, and fashion items" },
-              { icon: "🏠", title: "Home Decor", desc: "Furniture, decor, and home accessories" },
-              { icon: "💍", title: "Jewelry", desc: "Custom jewelry and accessories" },
-            ].map((type, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 hover:shadow-xl transition-all group cursor-pointer border-2 border-transparent hover:border-orange-500"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-white"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8"
               >
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{type.icon}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
-                <p className="text-gray-600">{type.desc}</p>
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <span className="text-lg font-medium">5.0 Rating • 500+ Happy Sellers</span>
+              </motion.div>
+
+              {/* Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 }}
+              >
+                <h2 className="text-xl font-semibold mb-4 text-white/90">Professional Etsy Management</h2>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                  Grow Your Etsy Empire
+                </h1>
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-white/90 mb-10 leading-relaxed"
+              >
+                Transform your Etsy shop into a thriving business. We handle everything from shop setup to sales optimization, so you can focus on what you do best - creating amazing products.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.5 }}
+                className="flex flex-col sm:flex-row gap-6"
+              >
+                <motion.button
+                  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold rounded-full shadow-lg group border border-orange-400 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Start Your Success Story <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform inline" />
+                </motion.button>
+                <motion.button
+                  className="bg-white/10 backdrop-blur-sm border border-white text-white hover:bg-white/20 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold rounded-full transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Success Stories
+                </motion.button>
+              </motion.div>
+
+              {/* Features List */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={isLoaded ? { opacity: 1 } : {}}
+                transition={{ delay: 0.6 }}
+                className="mt-12 flex flex-wrap gap-4"
+              >
+                {["Shop Setup", "SEO Optimization", "Sales Growth"].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.7 + index * 0.1 }}
+                    className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
+                  >
+                    <div className="w-3 h-3 bg-green-400 rounded-full" />
+                    <span className="text-lg font-medium">{feature}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Right Visual */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative"
+            >
+              {/* Enhanced Visual Elements */}
+              <div className="relative h-96 lg:h-[600px]">
+                {/* Main Dashboard Mockup */}
+                <motion.div
+                  animate={{
+                    y: [0, -20, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-0 right-0 w-80 h-56 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-600 rounded-2xl flex items-center justify-center">
+                      <TrendingUp className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <div className="h-6 bg-white/30 rounded-lg w-32 mb-2" />
+                      <div className="h-4 bg-white/20 rounded-lg w-24" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-white/30 rounded w-full" />
+                    <div className="h-4 bg-white/30 rounded w-3/4" />
+                    <div className="h-4 bg-white/30 rounded w-1/2" />
+                  </div>
+                </motion.div>
+
+                {/* Analytics Card */}
+                <motion.div
+                  animate={{
+                    y: [0, 20, 0],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute bottom-0 left-0 w-80 h-56 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center">
+                      <BarChart3 className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <div className="h-6 bg-white/30 rounded-lg w-28 mb-2" />
+                      <div className="h-4 bg-white/20 rounded-lg w-20" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-white/30 rounded w-full" />
+                    <div className="h-4 bg-white/30 rounded w-5/6" />
+                    <div className="h-4 bg-white/30 rounded w-2/3" />
+                  </div>
+                </motion.div>
+
+                {/* Central Etsy Hub */}
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-white/20 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl"
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex flex-col items-center justify-center">
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="text-8xl font-bold text-white mb-4"
+                    >
+                      🛍️
+                    </motion.div>
+                    <div className="text-white text-center">
+                      <div className="text-2xl font-bold mb-2">Etsy</div>
+                      <div className="text-lg opacity-90">Success</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Elements */}
+                <motion.div
+                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center shadow-xl"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                >
+                  <ShoppingBag className="w-10 h-10 text-white" />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center shadow-xl"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </motion.div>
               </div>
-            ))}
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Success Process */}
-      <div className="py-20 bg-gradient-to-br from-orange-50 to-red-50">
+      <ServiceStats stats={stats} backgroundColor="bg-gradient-to-r from-orange-600 to-red-600" />
+
+      {/* Enhanced Features Section with Images */}
+      <div className="py-24 bg-gradient-to-br from-gray-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Our Etsy Success Process
-            </h2>
-            <p className="text-xl text-gray-600">
-              A proven framework for growing your Etsy sales
-            </p>
+          <div className="text-center mb-20">
+            <motion.h2 
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              Complete Etsy Management Services
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Everything you need to build a successful Etsy business. From shop setup to sales optimization, we handle it all.
+            </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { icon: Award, step: "1", title: "Shop Audit", desc: "Analyze your current shop and identify opportunities" },
-              { icon: Search, step: "2", title: "SEO Optimization", desc: "Optimize every listing for maximum visibility" },
-              { icon: TrendingUp, step: "3", title: "Growth Strategy", desc: "Implement tactics to increase traffic and sales" },
-              { icon: Heart, step: "4", title: "Scale & Succeed", desc: "Continuous optimization and expansion" },
-            ].map((item, index) => {
-              const Icon = item.icon;
+          <div className="space-y-32">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              const isEven = index % 2 === 0;
+              
               return (
-                <div key={index} className="relative text-center">
-                  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="text-orange-600 font-bold text-2xl mb-3">Step {item.step}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="text-gray-600">{item.desc}</p>
+                <motion.div
+                  key={index}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center ${isEven ? '' : 'lg:grid-flow-col-dense'}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className={`order-1 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <motion.div
+                      className="relative overflow-hidden rounded-xl lg:rounded-3xl shadow-lg lg:shadow-2xl"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-48 sm:h-56 lg:h-96 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                      <div className="absolute bottom-2 left-2 lg:bottom-6 lg:left-6">
+                        <div className={`inline-flex items-center gap-1 lg:gap-3 bg-gradient-to-r ${feature.color} px-2 py-1 lg:px-6 lg:py-3 rounded-lg lg:rounded-full`}>
+                          <Icon className="w-3 h-3 lg:w-6 lg:h-6 text-white" />
+                          <span className="text-white font-semibold text-xs lg:text-base">{feature.title}</span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
-                </div>
+
+                  <div className={`order-2 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <motion.div
+                      className="space-y-4 lg:space-y-8"
+                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                      animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+                    >
+                      <div>
+                        <h3 className="text-lg sm:text-xl lg:text-4xl font-bold text-gray-900 mb-2 lg:mb-4">{feature.title}</h3>
+                        <p className="text-sm lg:text-lg text-gray-600 leading-relaxed">{feature.description}</p>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
+                        {feature.benefits.map((benefit, benefitIndex) => (
+                          <motion.div
+                            key={benefitIndex}
+                            className="flex items-center gap-2 lg:gap-3 p-2 lg:p-4 bg-white rounded-lg lg:rounded-xl shadow-md lg:shadow-lg border border-gray-100"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <CheckCircle className="w-3 h-3 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
+                            <span className="text-gray-700 font-medium text-xs lg:text-base">{benefit}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      <motion.button
+                        className={`inline-flex items-center gap-1 lg:gap-2 bg-gradient-to-r ${feature.color} text-white px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-full font-semibold shadow-md lg:shadow-lg hover:shadow-xl transition-all duration-300 text-xs lg:text-base`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Learn More
+                        <ArrowRight className="w-3 h-3 lg:w-5 lg:h-5" />
+                      </motion.button>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Benefits Section */}
+      <div className="py-24 bg-gradient-to-br from-orange-600 to-red-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              Why Choose Our Etsy Service?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-orange-100"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Experience the power of professional Etsy management
+            </motion.p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className={`w-20 h-20 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl`}>
+                    <Icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
+                  <p className="text-orange-100">{benefit.description}</p>
+                </motion.div>
               );
             })}
           </div>

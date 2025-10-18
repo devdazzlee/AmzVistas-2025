@@ -6,7 +6,7 @@ export default function Home() {
    <>
     <Banner
       title="About"
-      highlightText="AMAZON STRATEGY"
+      highlightText="ORBIT SYNDICATE"
       subtitle="Your trusted partner in e-commerce automation"
       backgroundImage="/images/Contact/Contact_Banner.jpg"
     />

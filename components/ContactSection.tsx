@@ -227,7 +227,7 @@ export default function ContactSection() {
                       },
                       {
                         icon: Mail,
-                        text: "contact@amazonstrategy.com",
+                        text: "contact@orbitsyndicate.com",
                         gradient: "from-blue-500 to-cyan-500",
                         bg: "from-blue-50 to-cyan-50",
                       },

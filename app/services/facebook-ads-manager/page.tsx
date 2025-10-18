@@ -13,238 +13,536 @@ import {
   Zap,
   Award,
   Rocket,
-  Eye
+  Eye,
+  CheckCircle,
+  ArrowRight,
+  Clock,
+  Globe,
+  Shield,
+  DollarSign,
+  Headphones,
+  Monitor,
+  Laptop,
+  Server,
+  Database,
+  Cloud,
+  Lock,
+  RefreshCw,
+  Store,
+  Heart,
+  Brain,
+  Cpu,
+  Mail,
+  FileText,
+  Video,
+  Megaphone,
+  BarChart3,
+  Star,
+  Search,
+  Settings,
+  Package,
+  ShoppingCart,
+  Facebook
 } from "lucide-react";
 import CallToAction from "@/components/Call-To-Action-Section/Call-To-Action-Section";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function FacebookAdsManagerPage() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   const features = [
     {
       icon: Target,
       title: "Expert Campaign Strategy",
-      description: "Certified Facebook Ads managers create custom strategies based on your business goals, audience, and budget.",
+      description: "Certified Facebook Ads managers create custom strategies based on your business goals, audience, and budget for maximum ROI.",
       color: "from-blue-500 to-indigo-600",
+      image: "/images/facebook ads manager/Where-is-the-Ad-Manager-on-Facebook-1200x900.jpg",
+      benefits: ["Custom Strategies", "ROI Optimization", "Budget Management", "Goal Alignment"]
     },
     {
       icon: Sparkles,
       title: "Creative Excellence",
-      description: "High-converting ad creatives designed by professionals. We create ads that stop the scroll and drive action.",
+      description: "High-converting ad creatives that capture attention and drive action. Professional designs, compelling copy, and A/B testing.",
       color: "from-purple-500 to-pink-600",
-    },
-    {
-      icon: TrendingUp,
-      title: "Advanced Optimization",
-      description: "Daily monitoring and optimization to maximize ROAS. We continuously test and refine for peak performance.",
-      color: "from-green-500 to-emerald-600",
+      image: "/images/facebook ads manager/images.png",
+      benefits: ["Professional Design", "Compelling Copy", "A/B Testing", "High Conversion"]
     },
     {
       icon: Users,
-      title: "Audience Mastery",
-      description: "Build profitable custom and lookalike audiences. Strategic retargeting that converts cold traffic.",
-      color: "from-orange-500 to-red-600",
+      title: "Audience Targeting",
+      description: "Precise audience targeting using Facebook's advanced tools. Reach your ideal customers with laser-focused campaigns.",
+      color: "from-green-500 to-emerald-600",
+      image: "/images/facebook ads manager/images (1).png",
+      benefits: ["Precise Targeting", "Advanced Tools", "Ideal Customers", "Laser Focus"]
     },
     {
       icon: BarChart,
-      title: "Transparent Reporting",
-      description: "Detailed analytics and insights you can understand. Track every dollar and see real ROI.",
-      color: "from-cyan-500 to-blue-600",
+      title: "Performance Optimization",
+      description: "Continuous optimization based on real-time data. We monitor, analyze, and improve your campaigns for better results.",
+      color: "from-orange-500 to-red-600",
+      image: "/images/facebook ads manager/1733842002922.png",
+      benefits: ["Real-time Monitoring", "Data Analysis", "Continuous Improvement", "Better Results"]
     },
     {
-      icon: Rocket,
-      title: "Scaling Systems",
-      description: "Proven frameworks to scale profitable campaigns. We help you grow while maintaining profitability.",
-      color: "from-rose-500 to-pink-600",
+      icon: Zap,
+      title: "Automated Bidding",
+      description: "Smart bidding strategies that maximize your budget efficiency. Automated bid adjustments for optimal performance.",
+      color: "from-yellow-500 to-orange-600",
+      image: "/images/facebook ads manager/images.jpg",
+      benefits: ["Smart Bidding", "Budget Efficiency", "Automated Adjustments", "Optimal Performance"]
+    },
+    {
+      icon: Eye,
+      title: "Ad Monitoring",
+      description: "24/7 monitoring of your Facebook ad campaigns. Proactive management to ensure consistent performance and compliance.",
+      color: "from-indigo-500 to-purple-600",
+      image: "/images/facebook ads manager/Everything-you-need-to-get-started-with-Facebook-Lead-Ads-in-2023-1200x900.jpg",
+      benefits: ["24/7 Monitoring", "Proactive Management", "Consistent Performance", "Compliance"]
     },
   ];
 
   const stats = [
-    { value: "480", label: "Average ROAS", suffix: "%" },
-    { value: "60", label: "Cost Per Lead Reduction", suffix: "%" },
-    { value: "250", label: "Active Accounts", suffix: "+" },
-    { value: "98", label: "Client Retention", suffix: "%" },
+    { value: "250", label: "Campaigns Managed", suffix: "+" },
+    { value: "85", label: "Average ROAS", suffix: "%" },
+    { value: "300", label: "Conversion Rate", suffix: "%" },
+    { value: "24", label: "Support Available", suffix: "/7" },
+    { value: "40", label: "Countries Served", suffix: "+" },
+    { value: "5", label: "Years Experience", suffix: "+" },
   ];
 
-  const pricingTiers = [
+  const benefits = [
     {
-      name: "Essential",
-      price: "$1,297",
-      period: "month",
-      description: "Perfect for small businesses",
-      features: [
-        "Up to $10K ad spend management",
-        "Facebook & Instagram campaigns",
-        "Basic audience targeting",
-        "2 ad creative variations",
-        "Bi-weekly reporting",
-        "Email support",
-      ],
-      buttonText: "Get Started",
+      icon: Clock,
+      title: "Save 50+ Hours Weekly",
+      description: "Focus on your business while we handle all Facebook ads",
+      color: "from-blue-500 to-indigo-500"
     },
     {
-      name: "Professional",
-      price: "$2,497",
-      period: "month",
-      description: "For serious businesses",
-      features: [
-        "Up to $30K ad spend management",
-        "Multi-platform campaigns",
-        "Advanced audience strategy",
-        "5+ ad creative variations",
-        "Weekly reporting & calls",
-        "Priority support",
-        "A/B testing included",
-        "Landing page advice",
-      ],
-      highlighted: true,
-      buttonText: "Scale Now",
+      icon: DollarSign,
+      title: "Increase ROAS by 250%",
+      description: "Our optimization strategies drive significant returns",
+      color: "from-green-500 to-emerald-500"
     },
     {
-      name: "Enterprise",
-      price: "$5,997",
-      period: "month",
-      description: "For maximum growth",
-      features: [
-        "Unlimited ad spend management",
-        "Full-funnel campaigns",
-        "Custom audience development",
-        "Unlimited creatives",
-        "Daily optimization",
-        "Dedicated ads manager",
-        "Creative production",
-        "Conversion rate optimization",
-      ],
-      buttonText: "Go Enterprise",
+      icon: Shield,
+      title: "100% Facebook Compliant",
+      description: "Stay safe with policies that protect your ad account",
+      color: "from-purple-500 to-pink-500"
     },
+    {
+      icon: Users,
+      title: "Certified Facebook Managers",
+      description: "Experts certified in Facebook advertising",
+      color: "from-orange-500 to-red-500"
+    }
   ];
 
   return (
     <>
-      <ServiceHero
-        title="Facebook Ads Manager You Can Trust"
-        subtitle="Dedicated Ads Management"
-        description="Get a certified Facebook Ads manager dedicated to growing your business. We handle strategy, creative, optimization, and scaling so you can focus on running your business."
-        primaryColor="from-blue-600 via-indigo-600 to-purple-600"
-        secondaryColor="from-blue-500 to-indigo-500"
-        features={["Certified Experts", "480% ROAS", "Full Transparency"]}
-        rating="4.9"
-        clients="250+"
-      />
+      {/* Custom Enhanced Banner */}
+      <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat opacity-40"
+            style={{ backgroundImage: "url('/images/facebook ads manager/facebook_ads_en.png')" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 via-indigo-600/80 to-purple-600/80" />
+        </div>
+
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -top-1/2 -right-1/2 w-full h-full bg-white rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              scale: [1.2, 1, 1.2],
+              rotate: [90, 0, 90],
+              opacity: [0.1, 0.2, 0.1],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute -bottom-1/2 -left-1/2 w-full h-full bg-white rounded-full blur-3xl"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8 }}
+              className="text-white"
+            >
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full mb-8"
+              >
+                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <span className="text-lg font-medium">5.0 Rating • 250+ Campaigns Managed</span>
+              </motion.div>
+
+              {/* Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 }}
+              >
+                <h2 className="text-xl font-semibold mb-4 text-white/90">Professional Facebook Ads Management</h2>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                  Maximize Your Facebook ROI
+                </h1>
+              </motion.div>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.4 }}
+                className="text-xl text-white/90 mb-10 leading-relaxed"
+              >
+                Let certified Facebook Ads managers handle your campaigns. We optimize for maximum ROI, drive qualified leads, and scale your business growth.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.5 }}
+                className="flex flex-col sm:flex-row gap-6"
+              >
+                <motion.button
+                  className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white px-3 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold rounded-full shadow-lg group border border-blue-400 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Start Your Campaign <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform inline" />
+                </motion.button>
+                <motion.button
+                  className="bg-white/10 backdrop-blur-sm border border-white text-white hover:bg-white/20 px-3 sm:px-4 lg:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-semibold rounded-full transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  View Case Studies
+                </motion.button>
+              </motion.div>
+
+              {/* Features List */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={isLoaded ? { opacity: 1 } : {}}
+                transition={{ delay: 0.6 }}
+                className="mt-12 flex flex-wrap gap-4"
+              >
+                {["Campaign Strategy", "Creative Excellence", "ROI Optimization"].map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+                    transition={{ delay: 0.7 + index * 0.1 }}
+                    className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full"
+                  >
+                    <div className="w-3 h-3 bg-green-400 rounded-full" />
+                    <span className="text-lg font-medium">{feature}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Right Visual */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative"
+            >
+              {/* Enhanced Visual Elements */}
+              <div className="relative h-96 lg:h-[600px]">
+                {/* Main Dashboard Mockup */}
+                <motion.div
+                  animate={{
+                    y: [0, -20, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-0 right-0 w-80 h-56 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-2xl flex items-center justify-center">
+                      <TrendingUp className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <div className="h-6 bg-white/30 rounded-lg w-32 mb-2" />
+                      <div className="h-4 bg-white/20 rounded-lg w-24" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-white/30 rounded w-full" />
+                    <div className="h-4 bg-white/30 rounded w-3/4" />
+                    <div className="h-4 bg-white/30 rounded w-1/2" />
+                  </div>
+                </motion.div>
+
+                {/* Analytics Card */}
+                <motion.div
+                  animate={{
+                    y: [0, 20, 0],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                  className="absolute bottom-0 left-0 w-80 h-56 bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-2xl flex items-center justify-center">
+                      <BarChart3 className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <div className="h-6 bg-white/30 rounded-lg w-28 mb-2" />
+                      <div className="h-4 bg-white/20 rounded-lg w-20" />
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-4 bg-white/30 rounded w-full" />
+                    <div className="h-4 bg-white/30 rounded w-5/6" />
+                    <div className="h-4 bg-white/30 rounded w-2/3" />
+                  </div>
+                </motion.div>
+
+                {/* Central Facebook Ads Hub */}
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-white/20 backdrop-blur-xl rounded-3xl p-8 border border-white/30 shadow-2xl"
+                >
+                  <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex flex-col items-center justify-center">
+                    <motion.div
+                      animate={{
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      className="text-8xl font-bold text-white mb-4"
+                    >
+                      📘
+                    </motion.div>
+                    <div className="text-white text-center">
+                      <div className="text-2xl font-bold mb-2">Facebook</div>
+                      <div className="text-lg opacity-90">Ads Manager</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Floating Elements */}
+                <motion.div
+                  className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-xl"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                >
+                  <Target className="w-10 h-10 text-white" />
+                </motion.div>
+                <motion.div
+                  className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center shadow-xl"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                >
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
       <ServiceStats stats={stats} backgroundColor="bg-gradient-to-r from-blue-600 to-indigo-600" />
 
-      <AnimatedFeatures
-        features={features}
-        title="What Your Facebook Ads Manager Does"
-        subtitle="Comprehensive management for maximum results"
-      />
-
-      {/* Why Hire a Manager */}
-      <div className="py-20 bg-white">
+      {/* Enhanced Features Section with Images */}
+      <div className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Why Hire a Facebook Ads Manager?
-            </h2>
-            <p className="text-xl text-gray-600">
-              Professional management delivers better results at lower costs
-            </p>
+          <div className="text-center mb-20">
+            <motion.h2 
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              Complete Facebook Ads Management Services
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Everything you need to succeed with Facebook advertising. From strategy to optimization, we handle it all.
+            </motion.p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { 
-                icon: Award, 
-                title: "Expert Knowledge", 
-                desc: "Facebook Blueprint certified with years of hands-on experience",
-                stat: "500+ Campaigns Managed"
-              },
-              { 
-                icon: Eye, 
-                title: "Daily Monitoring", 
-                desc: "We watch your campaigns 24/7 and make adjustments in real-time",
-                stat: "Daily Optimization"
-              },
-              { 
-                icon: Zap, 
-                title: "Faster Results", 
-                desc: "Skip the learning curve and start seeing results in weeks, not months",
-                stat: "30-Day Results"
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+          <div className="space-y-32">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              const isEven = index % 2 === 0;
+              
               return (
-                <div key={index} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover:shadow-xl transition-shadow">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-6">
-                    <Icon className="w-8 h-8 text-white" />
+                <motion.div
+                  key={index}
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16 items-center ${isEven ? '' : 'lg:grid-flow-col-dense'}`}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                >
+                  <div className={`order-1 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <motion.div
+                      className="relative overflow-hidden rounded-xl lg:rounded-3xl shadow-lg lg:shadow-2xl"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <Image
+                        src={feature.image}
+                        alt={feature.title}
+                        width={600}
+                        height={400}
+                        className="w-full h-48 sm:h-56 lg:h-96 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                      <div className="absolute bottom-2 left-2 lg:bottom-6 lg:left-6">
+                        <div className={`inline-flex items-center gap-1 lg:gap-3 bg-gradient-to-r ${feature.color} px-2 py-1 lg:px-6 lg:py-3 rounded-lg lg:rounded-full`}>
+                          <Icon className="w-3 h-3 lg:w-6 lg:h-6 text-white" />
+                          <span className="text-white font-semibold text-xs lg:text-base">{feature.title}</span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                  <p className="text-gray-600 mb-4">{item.desc}</p>
-                  <div className="text-blue-600 font-bold">{item.stat}</div>
-                </div>
+
+                  <div className={`order-2 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                    <motion.div
+                      className="space-y-4 lg:space-y-8"
+                      initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                      animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+                    >
+                      <div>
+                        <h3 className="text-lg sm:text-xl lg:text-4xl font-bold text-gray-900 mb-2 lg:mb-4">{feature.title}</h3>
+                        <p className="text-sm lg:text-lg text-gray-600 leading-relaxed">{feature.description}</p>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 lg:gap-4">
+                        {feature.benefits.map((benefit, benefitIndex) => (
+                          <motion.div
+                            key={benefitIndex}
+                            className="flex items-center gap-2 lg:gap-3 p-2 lg:p-4 bg-white rounded-lg lg:rounded-xl shadow-md lg:shadow-lg border border-gray-100"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <CheckCircle className="w-3 h-3 lg:w-5 lg:h-5 text-green-500 flex-shrink-0" />
+                            <span className="text-gray-700 font-medium text-xs lg:text-base">{benefit}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+
+                      <motion.button
+                        className={`inline-flex items-center gap-1 lg:gap-2 bg-gradient-to-r ${feature.color} text-white px-4 py-2 lg:px-8 lg:py-4 rounded-lg lg:rounded-full font-semibold shadow-md lg:shadow-lg hover:shadow-xl transition-all duration-300 text-xs lg:text-base`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Learn More
+                        <ArrowRight className="w-3 h-3 lg:w-5 lg:h-5" />
+                      </motion.button>
+                    </motion.div>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
         </div>
       </div>
 
-      {/* Manager Responsibilities */}
-      <div className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* Benefits Section */}
+      <div className="py-24 bg-gradient-to-br from-blue-600 to-indigo-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Your Dedicated Manager Handles Everything
-              </h2>
-              <div className="space-y-4">
-                {[
-                  "Campaign strategy and planning",
-                  "Audience research and targeting",
-                  "Ad creative design and copywriting",
-                  "Campaign setup and configuration",
-                  "Daily performance monitoring",
-                  "Budget management and allocation",
-                  "A/B testing and optimization",
-                  "Conversion tracking setup",
-                  "Weekly performance reporting",
-                  "Monthly strategy calls",
-                  "Scaling profitable campaigns",
-                  "Issue resolution and support",
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full" />
-                    <span className="text-gray-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="text-center mb-16">
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-white mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              Why Choose Our Facebook Ads Management?
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-blue-100"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Experience the power of professional Facebook advertising
+            </motion.p>
+          </div>
 
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Meet Your Manager</h3>
-              <div className="space-y-6">
-                {[
-                  { title: "Facebook Blueprint Certified", icon: "✅" },
-                  { title: "5+ Years Experience", icon: "⭐" },
-                  { title: "Managed $10M+ in Ad Spend", icon: "💰" },
-                  { title: "Average 400% ROAS", icon: "📈" },
-                  { title: "Direct Communication", icon: "💬" },
-                  { title: "Proactive Optimization", icon: "⚡" },
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
-                    <div className="text-3xl">{item.icon}</div>
-                    <div className="font-semibold text-gray-900">{item.title}</div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {benefits.map((benefit, index) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.8, delay: index * 0.2 }}
+                  whileHover={{ scale: 1.05, y: -5 }}
+                >
+                  <div className={`w-20 h-20 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl`}>
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                ))}
-              </div>
-
-              <button className="w-full mt-8 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold py-4 rounded-xl hover:shadow-lg transition-shadow">
-                Get Your Manager
-              </button>
-            </div>
+                  <h3 className="text-xl font-bold text-white mb-4">{benefit.title}</h3>
+                  <p className="text-blue-100">{benefit.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
-
-      <PricingSection tiers={pricingTiers} title="Manager Pricing Plans" subtitle="Professional management at every budget level" />
 
       <CallToAction />
     </>

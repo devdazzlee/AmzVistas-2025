@@ -46,7 +46,7 @@ export default function AnimatedStatsSlider({
       suffix: "USD",
       trend: 28,
       period: "Previous 7 days",
-      image: "/amazon-seller-stats.png",
+      image: "/images/stats/daily-sales.jpg",
       color: "from-orange-400 to-amber-600",
       icon: <DollarSign className="w-6 h-6" />,
     },
@@ -56,7 +56,7 @@ export default function AnimatedStatsSlider({
       value: 39,
       trend: 42,
       period: "Last year",
-      image: "/amazon-seller-stats.png",
+      image: "/images/stats/units-sold.jpg",
       color: "from-blue-400 to-blue-600",
       icon: <Package className="w-6 h-6" />,
     },
@@ -68,7 +68,7 @@ export default function AnimatedStatsSlider({
       suffix: "USD",
       trend: 28,
       period: "Previous 7 days",
-      image: "/amazon-seller-stats.png",
+      image: "/images/stats/weekly-revenue.jpg",
       color: "from-green-400 to-emerald-600",
       icon: <BarChart3 className="w-6 h-6" />,
     },
@@ -80,7 +80,7 @@ export default function AnimatedStatsSlider({
       suffix: "USD",
       trend: 48,
       period: "Previous period",
-      image: "/amazon-seller-stats.png",
+      image: "/images/stats/monthly-sales.jpg",
       color: "from-purple-400 to-purple-600",
       icon: <TrendingUp className="w-6 h-6" />,
     },
@@ -283,33 +283,54 @@ export default function AnimatedStatsSlider({
 
                   {/* Additional Info */}
                   <motion.div
-                    className="bg-gray-50 p-4 rounded-lg border border-gray-100"
+                    className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 rounded-2xl border border-gray-200 shadow-lg"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
                   >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <BarChart3 className="w-5 h-5 text-blue-500" />
-                        <span className="font-medium">Performance Metrics</span>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 bg-blue-500/10 rounded-lg">
+                          <BarChart3 className="w-5 h-5 text-blue-600" />
+                        </div>
+                        <span className="font-semibold text-gray-800">Performance Metrics</span>
                       </div>
-                      <span className="text-sm text-gray-500">Updated 12 minutes ago</span>
+                      <motion.div
+                        className="flex items-center gap-2"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ 
+                          duration: 2,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-sm text-gray-600">Live</span>
+                      </motion.div>
                     </div>
-                    <div className="mt-3 grid grid-cols-2 gap-4">
-                      <div className="text-center p-2 bg-white rounded shadow-sm">
-                        <div className="text-sm text-gray-500">Current</div>
-                        <div className="font-semibold">
+                    <div className="grid grid-cols-2 gap-4">
+                      <motion.div 
+                        className="text-center p-4 bg-white rounded-xl shadow-md border border-gray-100"
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="text-sm text-gray-500 mb-1">Current</div>
+                        <div className="font-bold text-lg text-gray-800">
                           {stats[currentIndex].prefix}
                           {formatValue(stats[currentIndex].value)}
                         </div>
-                      </div>
-                      <div className="text-center p-2 bg-white rounded shadow-sm">
-                        <div className="text-sm text-gray-500">Target</div>
-                        <div className="font-semibold">
+                      </motion.div>
+                      <motion.div 
+                        className="text-center p-4 bg-white rounded-xl shadow-md border border-gray-100"
+                        whileHover={{ scale: 1.02, y: -2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="text-sm text-gray-500 mb-1">Target</div>
+                        <div className="font-bold text-lg text-gray-800">
                           {stats[currentIndex].prefix}
                           {formatValue(Math.round(stats[currentIndex].value * 1.2))}
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </motion.div>
                 </div>
@@ -317,35 +338,105 @@ export default function AnimatedStatsSlider({
                 {/* Image */}
                 {showImages && (
                   <motion.div
-                    className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg"
+                    className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden shadow-2xl group"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3 }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800/10 to-gray-900/30 z-10 rounded-xl" />
+                    {/* Background Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-orange-500/20 z-10 rounded-2xl" />
+                    
+                    {/* Dynamic Color Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent z-10"
+                      className={`absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10 rounded-2xl`}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.5 }}
                     />
+                    
+                    {/* Main Image */}
                     <motion.img
                       src={stats[currentIndex].image}
                       alt={`${stats[currentIndex].title} visualization`}
-                      className="w-full h-full object-cover object-top rounded-xl"
+                      className="w-full h-full object-cover object-center rounded-2xl group-hover:scale-105 transition-transform duration-700"
                       initial={{ scale: 1.1 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.5 }}
                     />
+                    
+                    {/* Floating Elements */}
                     <motion.div
-                      className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg z-20"
+                      className="absolute top-4 right-4 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center z-20"
+                      animate={{ 
+                        y: [0, -10, 0],
+                        rotate: [0, 5, 0]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      {stats[currentIndex].icon}
+                    </motion.div>
+                    
+                    {/* Stats Badge */}
+                    <motion.div
+                      className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full z-20"
+                      initial={{ x: -50, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: 0.7, type: "spring" }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${stats[currentIndex].color}`}></div>
+                        <span className="text-xs font-semibold text-gray-700">Live Data</span>
+                      </div>
+                    </motion.div>
+                    
+                    {/* Bottom Info Card */}
+                    <motion.div
+                      className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-4 rounded-xl z-20 border border-white/20"
                       initial={{ y: 50, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
-                      transition={{ delay: 0.6, type: "spring" }}
+                      transition={{ delay: 0.8, type: "spring" }}
                     >
-                      <div className="text-sm font-medium">Amazon Seller Dashboard</div>
-                      <div className="text-xs text-gray-500">Real-time performance metrics</div>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-sm font-semibold text-gray-800">Orbit Syndicate Dashboard</div>
+                          <div className="text-xs text-gray-600">Real-time performance metrics</div>
+                        </div>
+                        <motion.div
+                          className="flex items-center gap-1"
+                          animate={{ opacity: [0.5, 1, 0.5] }}
+                          transition={{ 
+                            duration: 2,
+                            repeat: Number.POSITIVE_INFINITY,
+                            ease: "easeInOut"
+                          }}
+                        >
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-xs text-green-600 font-medium">Online</span>
+                        </motion.div>
+                      </div>
                     </motion.div>
+                    
+                    {/* Animated Border */}
+                    <motion.div
+                      className="absolute inset-0 rounded-2xl border-2 border-transparent"
+                      animate={{
+                        borderColor: [
+                          "rgba(59, 130, 246, 0.3)",
+                          "rgba(147, 51, 234, 0.3)",
+                          "rgba(249, 115, 22, 0.3)",
+                          "rgba(59, 130, 246, 0.3)"
+                        ]
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "easeInOut"
+                      }}
+                    />
                   </motion.div>
                 )}
               </motion.div>

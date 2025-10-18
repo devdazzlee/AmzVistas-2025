@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Amazon Strategy",
-  description: "Amazon Strategy - Your Premier E-commerce Automation Partner",
+  title: "Orbit Syndicate",
+  description: "Orbit Syndicate - Your Premier E-commerce Automation Partner",
 };
 
 export default function RootLayout({
