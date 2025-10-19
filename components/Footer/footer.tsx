@@ -167,18 +167,18 @@ export default function Footer() {
                 <MapPin className="w-4 h-4 text-gray-400 mt-1 flex-shrink-0" />
                 <div>
                   <p className="text-gray-300 text-sm font-medium mb-1">Our Address</p>
-                  <p className="text-gray-300 text-sm">5900 Balcones Drive STE 100 Austin TX 78731</p>
+                  <p className="text-gray-300 text-sm">9/130 Victoria Street, Bunbury WA 6230</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">+1 (737) 295-1375</p>
+                <p className="text-gray-300 text-sm">+1 571.548.1593</p>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">contact@orbitsyndicate.com</p>
+                <p className="text-gray-300 text-sm">Info@orbitsyndicate.com</p>
               </div>
             </div>
           </div>

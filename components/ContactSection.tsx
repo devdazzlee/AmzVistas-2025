@@ -2,17 +2,30 @@
 
 import type React from "react"
 
-import { MapPin, Phone, Mail, Send, Clock, Users, Star, Zap } from "lucide-react"
+import { MapPin, Phone, Mail, Send, Clock, Users, Star, Zap, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { motion } from "framer-motion"
 import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+import { useToast } from "@/hooks/use-toast"
+import { contactFormSchema, type ContactFormData } from "@/lib/validations"
 
 export default function ContactSection() {
   const [focusedField, setFocusedField] = useState<string | null>(null)
-  console.log("🚀 ~ ContactSection ~ focusedField:", focusedField)
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+  })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -49,11 +62,39 @@ export default function ContactSection() {
     },
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          type: 'contact'
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        toast({
+          title: "Message sent successfully! 🎉",
+          description: "Thank you for contacting us. We'll get back to you soon.",
+          variant: "success",
+        })
+        reset()
+      } else {
+        throw new Error(result.message || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
+      toast({
+        title: "Failed to send message",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      })
+    }
   }
 
   return (
@@ -215,19 +256,19 @@ export default function ContactSection() {
                     {[
                       {
                         icon: MapPin,
-                        text: "5900 Balcones Drive STE 100 Austin TX 78731",
+                        text: "9/130 Victoria Street, Bunbury WA 6230",
                         gradient: "from-red-500 to-pink-500",
                         bg: "from-red-50 to-pink-50",
                       },
                       {
                         icon: Phone,
-                        text: "+1 (737) 295-1375",
+                        text: "+1 571.548.1593",
                         gradient: "from-green-500 to-emerald-500",
                         bg: "from-green-50 to-emerald-50",
                       },
                       {
                         icon: Mail,
-                        text: "contact@orbitsyndicate.com",
+                        text: "Info@orbitsyndicate.com",
                         gradient: "from-blue-500 to-cyan-500",
                         bg: "from-blue-50 to-cyan-50",
                       },
@@ -315,7 +356,7 @@ export default function ContactSection() {
                 </span>
               </motion.h2>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 <motion.div
                   className="grid grid-cols-1 md:grid-cols-2 gap-4"
                   initial={{ opacity: 0, y: 20 }}
@@ -323,37 +364,82 @@ export default function ContactSection() {
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  {["Name", "Phone"].map((placeholder) => (
-                    <motion.div key={placeholder} whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
-                      <Input
-                        type={placeholder === "Phone" ? "tel" : "text"}
-                        placeholder={placeholder}
-                        className="h-14 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:border-purple-400 focus:ring-4 focus:ring-purple-100 focus:bg-white"
-                        onFocus={() => setFocusedField(placeholder.toLowerCase())}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {["Date", "Email"].map((placeholder, index) => (
-                  <motion.div
-                    key={placeholder}
-                    whileFocus={{ scale: 1.02 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1, whileFocus: { duration: 0.2 } }}
-                    viewport={{ once: true }}
-                  >
+                  <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
                     <Input
-                      type={placeholder === "Email" ? "email" : "text"}
-                      placeholder={placeholder === "Date" ? "mm/dd/yyyy" : placeholder}
-                      className="h-14 rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:border-purple-400 focus:ring-4 focus:ring-purple-100 focus:bg-white"
-                      onFocus={() => setFocusedField(placeholder.toLowerCase())}
+                      {...register("name")}
+                      type="text"
+                      placeholder="Name"
+                      className={`h-14 rounded-xl border-2 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:ring-4 focus:ring-purple-100 focus:bg-white ${
+                        errors.name ? 'border-red-500 focus:border-red-400' : 'border-gray-200 focus:border-purple-400'
+                      }`}
+                      onFocus={() => setFocusedField("name")}
                       onBlur={() => setFocusedField(null)}
                     />
+                    {errors.name && (
+                      <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                    )}
                   </motion.div>
-                ))}
+
+                  <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                    <Input
+                      {...register("phone")}
+                      type="tel"
+                      placeholder="Phone"
+                      className={`h-14 rounded-xl border-2 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:ring-4 focus:ring-purple-100 focus:bg-white ${
+                        errors.phone ? 'border-red-500 focus:border-red-400' : 'border-gray-200 focus:border-purple-400'
+                      }`}
+                      onFocus={() => setFocusedField("phone")}
+                      onBlur={() => setFocusedField(null)}
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+                    )}
+                  </motion.div>
+                </motion.div>
+
+                <motion.div
+                  whileFocus={{ scale: 1.02 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1, whileFocus: { duration: 0.2 } }}
+                  viewport={{ once: true }}
+                >
+                  <Input
+                    {...register("date")}
+                    type="date"
+                    placeholder="Date (Optional)"
+                    className={`h-14 rounded-xl border-2 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:ring-4 focus:ring-purple-100 focus:bg-white ${
+                      errors.date ? 'border-red-500 focus:border-red-400' : 'border-gray-200 focus:border-purple-400'
+                    }`}
+                    onFocus={() => setFocusedField("date")}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                  {errors.date && (
+                    <p className="text-red-500 text-sm mt-1">{errors.date.message}</p>
+                  )}
+                </motion.div>
+
+                <motion.div
+                  whileFocus={{ scale: 1.02 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.15, whileFocus: { duration: 0.2 } }}
+                  viewport={{ once: true }}
+                >
+                  <Input
+                    {...register("email")}
+                    type="email"
+                    placeholder="Email"
+                    className={`h-14 rounded-xl border-2 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium transition-all duration-300 focus:ring-4 focus:ring-purple-100 focus:bg-white ${
+                      errors.email ? 'border-red-500 focus:border-red-400' : 'border-gray-200 focus:border-purple-400'
+                    }`}
+                    onFocus={() => setFocusedField("email")}
+                    onBlur={() => setFocusedField(null)}
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  )}
+                </motion.div>
 
                 <motion.div
                   whileFocus={{ scale: 1.02 }}
@@ -366,12 +452,18 @@ export default function ContactSection() {
                   viewport={{ once: true }}
                 >
                   <Textarea
+                    {...register("message")}
                     placeholder="Tell us about your project and goals..."
                     rows={6}
-                    className="rounded-xl border-2 border-gray-200 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium resize-none transition-all duration-300 focus:border-purple-400 focus:ring-4 focus:ring-purple-100 focus:bg-white"
+                    className={`rounded-xl border-2 bg-gray-50 text-gray-900 placeholder:text-gray-500 font-medium resize-none transition-all duration-300 focus:ring-4 focus:ring-purple-100 focus:bg-white ${
+                      errors.message ? 'border-red-500 focus:border-red-400' : 'border-gray-200 focus:border-purple-400'
+                    }`}
                     onFocus={() => setFocusedField("message")}
                     onBlur={() => setFocusedField(null)}
                   />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                  )}
                 </motion.div>
 
                 <motion.div

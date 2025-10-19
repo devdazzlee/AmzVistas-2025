@@ -5,27 +5,70 @@ import { useState, useRef } from "react"
 import { motion, useInView, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { MapPin, Phone, Mail, CheckCircle, ArrowRight } from "lucide-react"
+import { MapPin, Phone, Mail, CheckCircle, ArrowRight, Loader2 } from "lucide-react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+import { useToast } from "@/hooks/use-toast"
+import { emailSubscriptionSchema, type EmailSubscriptionData } from "@/lib/validations"
 
 export default function MapContact() {
-  const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const { toast } = useToast()
   const mapRef = useRef(null)
   const contactRef = useRef(null)
   const isMapInView = useInView(mapRef, { once: true, margin: "-100px" })
   const isContactInView = useInView(contactRef, { once: true, margin: "-100px" })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Email submitted:", email)
-    // Show success animation
-    setIsSubmitted(true)
-    // Reset form after delay
-    setTimeout(() => {
-      setEmail("")
-      setIsSubmitted(false)
-    }, 3000)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<EmailSubscriptionData>({
+    resolver: zodResolver(emailSubscriptionSchema),
+  })
+
+  const onSubmit = async (data: EmailSubscriptionData) => {
+    try {
+      const response = await fetch('/api/subscribe-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: data.email,
+          name: 'Consultation Request',
+          message: 'User requested consultation via email signup',
+          type: 'consultation'
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        toast({
+          title: "Email submitted successfully! 🎉",
+          description: "We'll contact you soon for a consultation.",
+          variant: "success",
+        })
+        setIsSubmitted(true)
+        reset()
+        // Reset success state after delay
+        setTimeout(() => {
+          setIsSubmitted(false)
+        }, 3000)
+      } else {
+        throw new Error(result.message || 'Failed to submit email')
+      }
+    } catch (error) {
+      console.error('Error submitting email:', error)
+      toast({
+        title: "Failed to submit email",
+        description: error instanceof Error ? error.message : "Please try again later.",
+        variant: "destructive",
+      })
+    }
   }
 
   // Animation variants
@@ -234,9 +277,9 @@ export default function MapContact() {
             >
               <h2 className="text-2xl font-bold text-gray-800 mb-2 flex items-center">
                 <MapPin className="w-5 h-5 mr-2 text-blue-500" />
-                371 Hoes Ln
+                9/130 Victoria Street
               </h2>
-              <p className="text-gray-600 mb-3">371 Hoes Ln Ste 200, Piscataway, NJ 08854, USA</p>
+              <p className="text-gray-600 mb-3">9/130 Victoria Street, Bunbury WA 6230</p>
               <motion.a
                 href="https://goo.gl/maps/1JfQN8AeEZ9XY5Uw8"
                 target="_blank"
@@ -271,7 +314,7 @@ export default function MapContact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Phone</p>
-                  <p className="text-gray-700 font-medium">(848) 893 1877</p>
+                  <p className="text-gray-700 font-medium">+1 571.548.1593</p>
                 </div>
               </motion.div>
 
@@ -285,7 +328,7 @@ export default function MapContact() {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="text-gray-700 font-medium">partnerships@walstreamz.com</p>
+                  <p className="text-gray-700 font-medium">Info@orbitsyndicate.com</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -294,16 +337,16 @@ export default function MapContact() {
               <p className="text-gray-700 font-medium mb-4">
                 Text/ Call us to schedule a meeting with a Sr. Business Consultant
               </p>
-              <form onSubmit={handleSubmit} className="relative">
+              <form onSubmit={handleSubmit(onSubmit)} className="relative">
                 <div className="flex gap-2">
                   <motion.div className="flex-1" whileFocus={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Input
+                      {...register("email")}
                       type="email"
                       placeholder="Enter your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="border-2 focus:border-blue-500 h-12"
+                      className={`border-2 h-12 ${
+                        errors.email ? 'border-red-500 focus:border-red-400' : 'focus:border-blue-500'
+                      }`}
                     />
                   </motion.div>
                   <motion.div
@@ -314,12 +357,21 @@ export default function MapContact() {
                     <Button
                       type="submit"
                       className="bg-blue-600 hover:bg-blue-700 text-white h-12 px-6"
-                      disabled={isSubmitted}
+                      disabled={isSubmitting || isSubmitted}
                     >
-                      {isSubmitted ? "Sent!" : "Send"}
+                      {isSubmitting ? (
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                      ) : isSubmitted ? (
+                        "Sent!"
+                      ) : (
+                        "Send"
+                      )}
                     </Button>
                   </motion.div>
                 </div>
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                )}
 
                 {/* Success animation */}
                 <AnimatePresence>
