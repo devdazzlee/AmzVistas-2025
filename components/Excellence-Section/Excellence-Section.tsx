@@ -35,7 +35,7 @@ export default function ExcellenceSection() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
       },
     },
   }
@@ -47,7 +47,7 @@ export default function ExcellenceSection() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 0.05 * i,
       },
     }),
@@ -60,7 +60,7 @@ export default function ExcellenceSection() {
       y: 0,
       transition: {
         duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 0.5 + i * 0.2,
       },
     }),
@@ -72,7 +72,7 @@ export default function ExcellenceSection() {
       opacity: 1,
       scale: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15,
         delay: 0.2 + i * 0.15,
@@ -85,7 +85,7 @@ export default function ExcellenceSection() {
         duration: 4 + i,
         repeat: Number.POSITIVE_INFINITY,
         repeatType: "reverse" as const,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }),
   }
@@ -97,7 +97,7 @@ export default function ExcellenceSection() {
       opacity: 1,
       transition: {
         duration: 1.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 1.8,
       },
     },
@@ -109,7 +109,7 @@ export default function ExcellenceSection() {
       width: "100%",
       transition: {
         duration: 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 1.2,
       },
     },

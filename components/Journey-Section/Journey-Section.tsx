@@ -57,7 +57,7 @@ export default function JourneySection() {
       width: "100%",
       transition: {
         duration: 1.5,
-        ease: [0.25, 1, 0.5, 1],
+        ease: "easeOut" as const,
         delay: i * 0.3,
       },
     }),
@@ -70,7 +70,7 @@ export default function JourneySection() {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 0.5,
       },
     },
@@ -83,7 +83,7 @@ export default function JourneySection() {
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.22, 1, 0.36, 1],
+        ease: "easeOut" as const,
         delay: 0.8,
       },
     },
@@ -96,7 +96,7 @@ export default function JourneySection() {
       y: 0,
       rotateX: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 20,
         delay: 1 + i * 0.3,
@@ -125,7 +125,7 @@ export default function JourneySection() {
       scale: 1,
       rotate: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 20,
         delay: 1.5 + i * 0.2,
@@ -138,7 +138,7 @@ export default function JourneySection() {
         duration: 4,
         repeat: Infinity,
         repeatType: "reverse" as const,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     }
   }

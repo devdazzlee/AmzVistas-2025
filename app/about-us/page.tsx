@@ -1,9 +1,40 @@
+import { Metadata } from "next";
 import Banner from '@/components/Banner/Banner'
 import MapContact from '@/components/Map-Contact/Map-Contact'
 import MissionStatement from '@/components/Mission-Statement/Mission-Statement'
 import AnimatedStorySection from '@/components/Story-Section/Story-Section'
 import VisionSection from '@/components/Vision-Section/Vision-Section'
 import React from 'react'
+
+export const metadata: Metadata = {
+  title: "About Orbit Syndicate - Your Trusted E-commerce Automation Partner",
+  description: "Learn about Orbit Syndicate's mission to revolutionize e-commerce automation. Discover our story, vision, and commitment to providing premier Amazon FBA, Walmart, eBay, and Shopify automation services.",
+  keywords: [
+    "about Orbit Syndicate",
+    "e-commerce automation company",
+    "Amazon FBA company",
+    "e-commerce logistics company",
+    "online business automation",
+    "e-commerce consulting firm",
+    "wholesale distribution company",
+    "fulfillment services company"
+  ],
+  openGraph: {
+    title: "About Orbit Syndicate - Your Trusted E-commerce Automation Partner",
+    description: "Discover Orbit Syndicate's mission to revolutionize e-commerce automation with premier Amazon FBA, Walmart, eBay, and Shopify automation services.",
+    images: [
+      {
+        url: "/images/About_Us/About_Banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "About Orbit Syndicate - E-commerce Automation Company",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "/about-us",
+  },
+};
 
 const page = () => {
   return (

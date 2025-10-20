@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import LoadingAnimation from './LoadingAnimation';
 
 interface LoadingContextType {
@@ -25,26 +26,40 @@ interface LoadingProviderProps {
 const LoadingProvider: React.FC<LoadingProviderProps> = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const pathname = usePathname();
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
     // Add a small delay before showing content for smooth transition
     setTimeout(() => {
       setShowContent(true);
-    }, 300);
+    }, 200);
   };
 
+  // Handle initial load
   useEffect(() => {
-    // Ensure loading animation plays on initial load
     const timer = setTimeout(() => {
-      // This ensures the loading animation shows for at least a minimum time
       if (isLoading) {
         handleLoadingComplete();
       }
-    }, 2500); // Minimum loading time
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
+
+  // Handle route changes
+  useEffect(() => {
+    // Show loading on route change
+    setIsLoading(true);
+    setShowContent(false);
+    
+    // Complete loading after a short delay
+    const timer = setTimeout(() => {
+      handleLoadingComplete();
+    }, 800); // Shorter delay for route changes
+
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return (
     <LoadingContext.Provider value={{ isLoading, setLoading: setIsLoading }}>
@@ -56,10 +71,10 @@ const LoadingProvider: React.FC<LoadingProviderProps> = ({ children }) => {
         )}
         
         <div 
-          className={`main-content transition-all duration-700 ${
+          className={`main-content transition-all duration-500 ${
             showContent 
               ? 'opacity-100 transform translate-y-0' 
-              : 'opacity-0 transform translate-y-4'
+              : 'opacity-0 transform translate-y-2'
           }`}
           style={{ 
             visibility: showContent ? 'visible' : 'hidden',
@@ -74,4 +89,5 @@ const LoadingProvider: React.FC<LoadingProviderProps> = ({ children }) => {
 };
 
 export default LoadingProvider;
+
 

@@ -152,15 +152,15 @@ export default function Navbar() {
               <SheetContent side="right" className="w-[400px] sm:w-[450px] p-0 bg-white/95 backdrop-blur-xl border-l border-white/20">
                 <div className="flex flex-col h-full bg-white/95 backdrop-blur-xl">
                   {/* Mobile Header */}
-                  <div className="flex justify-between items-center py-8 px-6 border-b border-white/20">
+                  <div className="flex justify-between items-center py-6 px-6 border-b border-white/20">
                     <div className="flex items-center">
                       {/* Mobile Logo */}
-                      <div className="relative w-64 h-20">
+                      <div className="relative w-80 h-24">
                         <Image
                           src="/images/Logo.png"
                           alt="Orbit Syndicate Logo"
-                          width={192}
-                          height={80}
+                          width={320}
+                          height={96}
                           className="object-contain w-full h-full"
                           priority
                         />

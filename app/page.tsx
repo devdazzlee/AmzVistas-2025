@@ -1,5 +1,4 @@
-"use client"
-
+import { Metadata } from "next";
 import AdvancedStatsCarousel from "@/components/Advanced-Stats-Carousel/Advanced-Stats-Carousel";
 import AnimatedStatsSlider from "@/components/Animated-Stats-Slider/Animated-Stats-Slider";
 import ExcellenceSection from "@/components/Excellence-Section/Excellence-Section";
@@ -16,6 +15,40 @@ import SuccessStoriesSection from "@/components/Succes-Stories/Succes-Stories";
 import TrustedPartnersSection from "@/components/Trusted-Partners/Trusted-Partners";
 import { Button } from "@/components/ui/button";
 import { advancedCards, amazonStats, customLocations, customPartners } from "@/Data/amazonStats";
+
+export const metadata: Metadata = {
+  title: "Premier E-commerce Automation & Amazon FBA Services",
+  description: "Transform your e-commerce business with Orbit Syndicate. Expert Amazon FBA, Walmart, eBay, Shopify automation services, digital marketing, and comprehensive logistics solutions. Get started today!",
+  keywords: [
+    "Amazon FBA services",
+    "e-commerce automation",
+    "Walmart automation",
+    "eBay automation", 
+    "Shopify automation",
+    "digital marketing services",
+    "e-commerce logistics",
+    "Amazon seller services",
+    "online business automation",
+    "e-commerce consulting",
+    "fulfillment services",
+    "wholesale distribution"
+  ],
+  openGraph: {
+    title: "Orbit Syndicate - Premier E-commerce Automation & Amazon FBA Services",
+    description: "Transform your e-commerce business with expert Amazon FBA, Walmart, eBay, Shopify automation services, digital marketing, and comprehensive logistics solutions.",
+    images: [
+      {
+        url: "/images/Home/HomeBanner.png",
+        width: 1200,
+        height: 630,
+        alt: "Orbit Syndicate E-commerce Automation Services",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
 
@@ -53,7 +86,6 @@ export default function Home() {
         tourDescription="Book your personalized facility tour and witness how we're revolutionizing e-commerce logistics across multiple locations."
         buttonText="Schedule Your Tour Today!"
         locations={customLocations}
-        onButtonClick={() => console.log("Custom tour scheduled")}
         backgroundColor="bg-gray-50"
       />
        <TrustedPartnersSection

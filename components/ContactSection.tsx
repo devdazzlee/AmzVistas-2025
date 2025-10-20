@@ -46,7 +46,7 @@ export default function ContactSection() {
       scale: 1,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: "easeOut" as const,
       },
     },
   }
@@ -57,7 +57,7 @@ export default function ContactSection() {
       transition: {
         duration: 3,
         repeat: Number.POSITIVE_INFINITY,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
       },
     },
   }
@@ -401,7 +401,7 @@ export default function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1, whileFocus: { duration: 0.2 } }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
                   viewport={{ once: true }}
                 >
                   <Input
@@ -423,7 +423,7 @@ export default function ContactSection() {
                   whileFocus={{ scale: 1.02 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.15, whileFocus: { duration: 0.2 } }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
                   viewport={{ once: true }}
                 >
                   <Input
@@ -446,7 +446,6 @@ export default function ContactSection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{
-                    whileFocus: { duration: 0.2 },
                     default: { duration: 0.6, delay: 0.3 }
                   }}
                   viewport={{ once: true }}

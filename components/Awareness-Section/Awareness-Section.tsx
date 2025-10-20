@@ -76,7 +76,7 @@ export default function AwarenessSection() {
           padding: 20,
           font: {
             size: 14,
-            weight: "500",
+            weight: "normal" as const,
           },
         },
       },
